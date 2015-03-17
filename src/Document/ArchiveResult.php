@@ -3,7 +3,6 @@
 
 namespace Isign\Document;
 
-
 use Isign\ResultInterface;
 
 class ArchiveResult implements ResultInterface

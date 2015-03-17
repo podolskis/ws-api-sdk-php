@@ -1,7 +1,6 @@
 <?php
 namespace Isign\Document;
 
-
 use Isign\DocumentTypeProvider;
 use Isign\QueryInterface;
 use Isign\ResultInterface;
