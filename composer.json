@@ -1,0 +1,29 @@
+{
+    "name": "isign/isign-sdk-php",
+    "description": "Client for iSign digital signature API",
+    
+    "require": {
+        "php"                       : ">=5.4.0",
+        "guzzlehttp/guzzle"         : "~5.1",
+        "guzzlehttp/log-subscriber" : "~1.0",
+        "symfony/validator"         : "~2.6"
+    },
+    "require-dev": {
+        "psr/log"           : "~1.0",
+        "monolog/monolog"   : "~1.0",
+        "phpunit/phpunit"   : "~4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Isign\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Isign\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
