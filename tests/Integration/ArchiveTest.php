@@ -18,7 +18,7 @@ class ArchiveTest extends TestCase
                 'content' => base64_encode(file_get_contents(__DIR__.'/../data/signed.pdf'))
             ],
             [
-                ['id' => 'sig1']
+                ['id' => 'Signature1']
             ]
         ));
 
