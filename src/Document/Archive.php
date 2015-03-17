@@ -90,13 +90,21 @@ class Archive implements QueryInterface
                 ]),
                 'content' => new Assert\Required([
                     new Assert\NotBlank(),
-                    //new Base64()
                 ]),
                 'digest' => new Assert\Required([
                     new Assert\NotBlank()
                 ]),
             ]),
-            'signatures' => new Assert\Collection([])
+            'signatures' => new Assert\Required([
+                new Assert\Count(['min' => 1]),
+                new Assert\All([
+                    new Assert\Collection([
+                        'id' => new Assert\Required([
+                            new Assert\NotBlank()
+                        ]),
+                    ])
+                ])
+            ])
         ]);
     }
 

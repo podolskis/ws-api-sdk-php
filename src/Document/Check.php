@@ -81,7 +81,6 @@ class Check implements QueryInterface
                 ]),
                 'content' => new Assert\Required([
                     new Assert\NotBlank(),
-                    //new Base64()
                 ]),
                 'digest' => new Assert\Required([
                     new Assert\NotBlank()
