@@ -11,11 +11,14 @@ class QueryValidatorTest extends \PHPUnit_Framework_TestCase
         $message = 'Message';
         $violations = $this->getMockBuilder('Symfony\Component\Validator\ConstraintViolationList')
             ->disableOriginalConstructor()
-            ->getMock();
+            ->getMock()
+        ;
+
+        $violations->method('__toString')->willReturn('list of violations');
 
         $object = new QueryValidator($message, $violations);
 
         $this->assertEquals($violations, $object->getViolations());
-        $this->assertEquals($message, $object->getMessage());
+        $this->assertEquals($message . ': list of violations', $object->getMessage());
     }
 }

@@ -5,7 +5,7 @@ use Isign\Sign\ScPrepareResult;
 use Isign\Tests\TestCase;
 use Isign\Tests\TestResultFieldsTrait;
 
-class PrepareResultTest extends TestCase
+class ScPrepareResultTest extends TestCase
 {
     private $method;
 

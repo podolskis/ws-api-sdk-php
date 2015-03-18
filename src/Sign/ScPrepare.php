@@ -103,8 +103,7 @@ class ScPrepare implements QueryInterface
                     ]
                 ])
             ]),
-            $this->type => new Assert\Collection([
-            ]),
+            $this->type => new Assert\Collection([]),
         ]);
     }
 

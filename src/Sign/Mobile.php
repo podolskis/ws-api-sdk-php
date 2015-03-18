@@ -110,8 +110,7 @@ class Mobile implements QueryInterface
                 new Assert\NotBlank(),
                 new Code()
             ]),
-            $this->type => new Assert\Collection([
-            ]),
+            $this->type => new Assert\Collection([]),
             'language' => new Assert\Optional(),
             'message' => new Assert\Optional(),
             'timestamp' => new Assert\Optional(),

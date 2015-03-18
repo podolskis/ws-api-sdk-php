@@ -24,7 +24,10 @@ class TestCase extends \PHPUnit_Framework_TestCase
             $params['sandboxUrl'] = SANDBOX_URL;
         }
 
-        $this->client = Client::create($params);
+        $log = false;
+        $log = null;
+
+        $this->client = Client::create($params, $log);
     }
 
     protected function sign($dtbs)

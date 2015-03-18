@@ -58,7 +58,6 @@ class Sc implements QueryInterface
         return new Assert\Collection([
             'certificate' => new Assert\Required([
                 new Assert\NotBlank(),
-                //new Base64()
             ])
         ]);
     }

@@ -18,7 +18,7 @@ class QueryValidator extends \InvalidArgumentException
      */
     public function __construct($message, ConstraintViolationList $violations)
     {
-        parent::__construct($message);
+        parent::__construct($message . ': ' . (string)$violations);
 
         $this->violations = $violations;
     }

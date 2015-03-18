@@ -14,7 +14,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     protected function assertSetterExists($property, $object)
     {
-        $setter = 'set' . ucfirst($property);
+        $setter = 'set' . $this->toMethodName($property);
         $this->assertTrue(
             method_exists($object, $setter),
             sprintf('Method is %s missing', $setter)
@@ -30,11 +30,19 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     protected function assertGetterExists($property, $object)
     {
-        $getter = 'get' . ucfirst($property);
+        $getter = 'get' . $this->toMethodName($property);
         $this->assertTrue(
             method_exists($object, $getter),
             sprintf('Method is %s missing', $getter)
         );
         $this->assertSame('foo', $object->$getter());
+    }
+
+    private function toMethodName($value)
+    {
+        $parts = explode('_', $value);
+        $parts = array_map('ucfirst', $parts);
+        
+        return implode('', $parts);
     }
 }

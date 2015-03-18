@@ -23,7 +23,7 @@ class ScResult implements ResultInterface
         return [
             'status',
             'file',
-            'signatureId'
+            'signature_id'
         ];
     }
 

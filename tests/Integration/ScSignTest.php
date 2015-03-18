@@ -9,6 +9,20 @@ use Isign\StatusResultInterface;
 
 class ScSignTest extends TestCase
 {
+    /**
+    * @expectedException Isign\Exception\QueryValidator
+    */
+    public function testRequiredParams()
+    {
+        $this->client->get(new ScPrepare(
+            null,
+            null,
+            null,
+            null,
+            array()
+        ));
+    }
+
     public function testPrepare()
     {
         /** @var ScPrepareResult $result */
@@ -35,6 +49,7 @@ class ScSignTest extends TestCase
         $result = $this->client->get(new Sc($result->getToken(), $this->sign($result->getDtbs())));
 
         $this->assertSame(StatusResultInterface::STATUS_OK, $result->getStatus());
+        $this->assertSame('Signature1', $result->getSignatureId());
     }
 
     /**
@@ -68,7 +83,7 @@ class ScSignTest extends TestCase
             ],
             'contact'   => 'Ponas Testuotojas',
             'reason'    => 'Pasirašymas',
-            'location'  => 'Vilnius'
+            'location'  => 'Vilnius',
         ];
     }
 }

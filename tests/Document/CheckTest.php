@@ -6,8 +6,6 @@ namespace Isign\Tests\Document;
 use Isign\Document\Check;
 use Isign\QueryInterface;
 use Isign\Tests\TestCase;
-use Symfony\Component\Validator\Validation;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class CheckTest extends TestCase
 {
@@ -16,9 +14,6 @@ class CheckTest extends TestCase
 
     /** @var  Check */
     private $query;
-
-    /** @var  ValidatorInterface */
-    private $validator;
 
     public function setUp()
     {
@@ -30,8 +25,6 @@ class CheckTest extends TestCase
                 'content' => base64_encode(file_get_contents(__DIR__.'/../data/document.pdf'))
             ]
         );
-
-        $this->validator = Validation::createValidator();
     }
 
     public function testGetFields()
@@ -56,35 +49,6 @@ class CheckTest extends TestCase
     public function testGetMethod()
     {
         $this->assertSame(QueryInterface::POST, $this->query->getMethod());
-    }
-
-    public function testValidationConstraints()
-    {
-        $violations = $this->validator->validate(
-            $this->query->getFields(),
-            $this->query->getValidationConstraints()
-        );
-
-        $this->assertEquals(0, count($violations));
-    }
-
-    public function testEmptyFileValidationConstraints()
-    {
-        $check = new Check(
-            self::TYPE,
-            [
-                'name' => '',
-                'digest' => '',
-                'content' => ''
-            ]
-        );
-
-        $violations = $this->validator->validate(
-            $check->getFields(),
-            $check->getValidationConstraints()
-        );
-
-        $this->assertEquals(3, count($violations));
     }
 
     public function testCreateResult()

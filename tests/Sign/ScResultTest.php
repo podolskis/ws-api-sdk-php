@@ -21,7 +21,7 @@ class ScResultTest extends TestCase
         return [
             ['status'],
             ['file'],
-            ['signatureId']
+            ['signature_id']
         ];
     }
 }
