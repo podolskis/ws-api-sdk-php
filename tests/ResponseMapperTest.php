@@ -11,7 +11,7 @@ class ResponseMapperTest extends \PHPUnit_Framework_TestCase
     {
         $this->resultMock = $this
             ->getMockBuilder('Isign\ResultInterface')
-            ->setMethods(['getFields', 'setField1', 'setField2'])
+            ->setMethods(['getFields', 'setFieldName1', 'setField2'])
             ->disableOriginalConstructor()
             ->getMock()
         ;
@@ -23,13 +23,13 @@ class ResponseMapperTest extends \PHPUnit_Framework_TestCase
 
         $this->resultMock->method('getFields')
             ->willReturn([
-                'field1',
+                'field_name_1',
                 'field2',
             ])
         ;
         $this->resultMock
             ->expects($this->once())
-            ->method('setField1')
+            ->method('setFieldName1')
             ->with($this->equalTo('value1'))
         ;
         $this->resultMock
@@ -39,7 +39,7 @@ class ResponseMapperTest extends \PHPUnit_Framework_TestCase
         ;
 
         $result = $mapper->map(
-            ['field1' => 'value1', 'field2' => 'value2'],
+            ['field_name_1' => 'value1', 'field2' => 'value2'],
             $this->resultMock
         );
         $this->assertInstanceOf('Isign\ResultInterface', $result);
