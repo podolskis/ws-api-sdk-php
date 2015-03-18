@@ -88,11 +88,7 @@ class MobileSignTest extends TestCase
             'reason' => 'Dokumento asirašymas',
             'location' => 'Vilnius',
             'files' => [
-                [
-                    'name' => 'Signing.pdf',
-                    'content' => base64_encode(file_get_contents(__DIR__ . '/../data/document.pdf')),
-                    'digest' => sha1_file(__DIR__ . '/../data/document.pdf')
-                ]
+               __DIR__ . '/../data/document.pdf',
             ]
         ];
     }

@@ -82,13 +82,7 @@ class MobileTest extends TestCase
             'contact' => '',
             'reason' => '',
             'location' => '',
-            'files' => [
-                [
-                    'name' => '',
-                    'content' => '',
-                    'digest' => '',
-                ]
-            ],
+            'files' => [],
         ];
     }
 }

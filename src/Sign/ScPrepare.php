@@ -3,12 +3,14 @@
 namespace Isign\Sign;
 
 use Isign\DocumentTypeProvider;
+use Isign\FileFieldsTrait;
 use Isign\QueryInterface;
 use Isign\ResultInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class ScPrepare implements QueryInterface
 {
+    use FileFieldsTrait;
 
     /** @var string base64_encode(certificate) */
     private $certificate;
@@ -57,12 +59,17 @@ class ScPrepare implements QueryInterface
      */
     public function getFields()
     {
+        $params = $this->document;
+        if (isset($params['files'])) {
+            $params['files'] = $this->getMultipleFileFields($params['files']);
+        }
+        
         return [
             'certificate' => $this->certificate,
             'type' => $this->type,
             'timestamp' => $this->timestamp,
             'language'  => $this->language,
-            $this->type => $this->document
+            $this->type => $params
         ];
     }
 

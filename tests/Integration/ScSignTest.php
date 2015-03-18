@@ -75,11 +75,7 @@ class ScSignTest extends TestCase
     {
         return [
             'files' => [
-                [
-                    'name' => 'document.pdf',
-                    'digest' => sha1(file_get_contents(__DIR__.'/../data/document.pdf')),
-                    'content' => base64_encode(file_get_contents(__DIR__.'/../data/document.pdf'))
-                ]
+                __DIR__.'/../data/document.pdf',
             ],
             'contact'   => 'Ponas Testuotojas',
             'reason'    => 'Pasirašymas',

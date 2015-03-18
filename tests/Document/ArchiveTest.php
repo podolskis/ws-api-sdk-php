@@ -20,11 +20,7 @@ class ArchiveTest extends TestCase
     {
         $this->query = new Archive(
             self::TYPE,
-            [
-                'name' => self::NAME,
-                'digest' => sha1(file_get_contents(__DIR__.'/../data/document.pdf')),
-                'content' => base64_encode(file_get_contents(__DIR__.'/../data/document.pdf'))
-            ],
+            __DIR__ . '/../data/document.pdf',
             [
                 ['id' => 'signature_0'],
                 ['id' => 'signature_1']

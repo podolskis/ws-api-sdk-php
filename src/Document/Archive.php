@@ -2,9 +2,9 @@
 namespace Isign\Document;
 
 use Isign\DocumentTypeProvider;
+use Isign\FileFieldsTrait;
 use Isign\QueryInterface;
 use Isign\ResultInterface;
-use Isign\Validator\Constraints\Base64;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -19,24 +19,26 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Archive implements QueryInterface
 {
+    use FileFieldsTrait;
+
     /** @var string Possible values: pdf, adoc, mdoc */
     private $type;
 
-    /** @var array file */
-    private $file;
+    /** @var string file path */
+    private $path;
 
     /** @var array of signatures with required id key */
     private $signatures;
 
     /**
      * @param string $type Possible values: pdf, adoc, mdoc
-     * @param array $file
+     * @param string $path
      * @param array $signatures
      */
-    public function __construct($type, $file, $signatures)
+    public function __construct($type, $path, $signatures)
     {
         $this->type = $type;
-        $this->file = $file;
+        $this->path = $path;
         $this->signatures = $signatures;
     }
 
@@ -57,7 +59,7 @@ class Archive implements QueryInterface
     {
         return [
             'type' => $this->type,
-            'file' => $this->file,
+            'file' => $this->getFileFields($this->path),
             'signatures' => $this->signatures
         ];
     }

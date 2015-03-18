@@ -19,11 +19,7 @@ class CheckTest extends TestCase
     {
         $this->query = new Check(
             self::TYPE,
-            [
-                'name' => self::NAME,
-                'digest' => sha1(file_get_contents(__DIR__.'/../data/document.pdf')),
-                'content' => base64_encode(file_get_contents(__DIR__.'/../data/document.pdf'))
-            ]
+            __DIR__.'/../data/document.pdf'
         );
     }
 

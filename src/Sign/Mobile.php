@@ -2,6 +2,7 @@
 namespace Isign\Sign;
 
 use Isign\DocumentTypeProvider;
+use Isign\FileFieldsTrait;
 use Isign\QueryInterface;
 use Isign\Validator\Constraints\Code;
 use Isign\Validator\Constraints\Phone;
@@ -12,6 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Mobile implements QueryInterface
 {
+    use FileFieldsTrait;
+    
     /** @var string document type */
     private $type;
     
@@ -67,11 +70,16 @@ class Mobile implements QueryInterface
      */
     public function getFields()
     {
+        $params = $this->document;
+        if (isset($params['files'])) {
+            $params['files'] = $this->getMultipleFileFields($params['files']);
+        }
+
         $return = [
             'type' => $this->type,
             'phone' => $this->phone,
             'code' => $this->code,
-            $this->type => $this->document,
+            $this->type => $params,
         ];
 
         if ($this->timestamp !== null) {

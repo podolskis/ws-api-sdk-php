@@ -15,22 +15,21 @@ class ArchiveTest extends TestCase
         /** @var StatusResultInterface $statusResult */
         $statusResult = $this->client->get(new Archive(
             'pdf',
-            $this->getFileParams(),
+            __DIR__ . '/../data/signed.pdf',
             []
         ));
     }
 
+    /**
+     * @expectedException RuntimeException
+     * @expectedExceptionMessage File "" does not exist
+     */
     public function testRequiredFileParameters()
     {
         try {
-            /** @var StatusResultInterface $statusResult */
-            $statusResult = $this->client->get(new Archive(
+            $this->client->get(new Archive(
                 'pdf',
-                [
-                    'name' => '',
-                    'digest' => '',
-                    'content' => '',
-                ],
+                null,
                 [
                     ['id' => 'Signature0'],
                     ['id' => 'Signature1']
@@ -49,21 +48,12 @@ class ArchiveTest extends TestCase
         /** @var StatusResultInterface $statusResult */
         $statusResult = $this->client->get(new Archive(
             'pdf',
-            $this->getFileParams(),
+            __DIR__ . '/../data/signed.pdf',
             [
                 ['id' => 'Signature1']
             ]
         ));
 
         $this->assertSame(StatusResultInterface::STATUS_OK, $statusResult->getStatus());
-    }
-
-    private function getFileParams()
-    {
-        return [
-            'name' => 'signed.pdf',
-            'digest' => sha1(file_get_contents(__DIR__.'/../data/signed.pdf')),
-            'content' => base64_encode(file_get_contents(__DIR__.'/../data/signed.pdf'))
-        ];
     }
 }

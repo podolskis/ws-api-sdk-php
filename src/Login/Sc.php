@@ -4,7 +4,6 @@
 namespace Isign\Login;
 
 use Isign\QueryInterface;
-use Isign\Validator\Constraints\Base64;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Sc implements QueryInterface
