@@ -25,7 +25,8 @@ class TestCase extends \PHPUnit_Framework_TestCase
         }
 
         $log = false;
-        $log = null;
+        // Uncomment to enable request/response debugging
+        // $log = null;
 
         $this->client = Client::create($params, $log);
     }
