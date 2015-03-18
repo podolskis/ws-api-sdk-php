@@ -46,6 +46,38 @@ class MobileTest extends TestCase
         $this->assertSame(false, $result['timestamp']);
     }
 
+    public function testGetFileFields()
+    {
+        $method = new Mobile('pdf', '+370xxxxxxxx', 'xxxxxxxxxxx', [
+            'files' => [
+                __DIR__.'/../data/document.pdf'
+            ]
+        ]);
+        $result = $method->getFields();
+
+        $this->assertArrayHasKey('pdf', $result);
+        $this->assertArrayHasKey('files', $result['pdf']);
+        $this->assertArrayHasKey(0, $result['pdf']['files']);
+        $file = $result['pdf']['files'][0];
+        $this->assertArrayHasKey('name', $file);
+        $this->assertArrayHasKey('digest', $file);
+        $this->assertArrayHasKey('content', $file);
+    }
+
+    /**
+     * @expectedException \RuntimeException
+     * @expectedExceptionMessage File "" does not exist
+     */
+    public function testGetFileFieldsWithNonExistingFile()
+    {
+        $method = new Mobile('pdf', '+370xxxxxxxx', 'xxxxxxxxxxx', [
+            'files' => [
+                null
+            ]
+        ]);
+        $method->getFields();
+    }
+
     public function testGetAction()
     {
         $method = new Mobile('', '', '', []);

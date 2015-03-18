@@ -44,6 +44,16 @@ class ArchiveTest extends TestCase
         $this->assertSame('signature_0', $fields['signatures'][0]['id']);
     }
 
+    /**
+     * @expectedException \RuntimeException
+     * @expectedExceptionMessage File "" does not exist
+     */
+    public function testGetFileFieldsWithNonExistingFile()
+    {
+        $method = new Archive(self::TYPE, null, []);
+        $method->getFields();
+    }
+
     public function testGetAction()
     {
         $this->assertSame('archive', $this->query->getAction());
@@ -57,5 +67,15 @@ class ArchiveTest extends TestCase
     public function testCreateResult()
     {
         $this->assertInstanceOf('Isign\Document\ArchiveResult', $this->query->createResult());
+    }
+
+    public function testHasValidationConstraints()
+    {
+        $collection = $this->query->getValidationConstraints();
+
+        $this->assertInstanceOf(
+            'Symfony\Component\Validator\Constraints\Collection',
+            $collection
+        );
     }
 }

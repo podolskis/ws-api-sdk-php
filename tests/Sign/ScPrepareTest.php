@@ -37,6 +37,50 @@ class ScPrepareTest extends TestCase
         $this->assertArrayHasKey($result['type'], $result);
     }
 
+    public function testGetFileFields()
+    {
+        $method = new ScPrepare(
+            base64_encode(CERTIFICATE_SIGN),
+            self::TYPE,
+            self::TIMESTAMP,
+            self::LANGUAGE,
+            [
+                'files' => [
+                    __DIR__.'/../data/document.pdf'
+                ]
+            ]
+        );
+        $result = $method->getFields();
+
+        $this->assertArrayHasKey(self::TYPE, $result);
+        $this->assertArrayHasKey('files', $result[self::TYPE]);
+        $this->assertArrayHasKey(0, $result[self::TYPE]['files']);
+        $file = $result[self::TYPE]['files'][0];
+        $this->assertArrayHasKey('name', $file);
+        $this->assertArrayHasKey('digest', $file);
+        $this->assertArrayHasKey('content', $file);
+    }
+
+    /**
+     * @expectedException \RuntimeException
+     * @expectedExceptionMessage File "" does not exist
+     */
+    public function testGetFileFieldsWithNonExistingFile()
+    {
+        $method = new ScPrepare(
+            base64_encode(CERTIFICATE_SIGN),
+            self::TYPE,
+            self::TIMESTAMP,
+            self::LANGUAGE,
+            [
+                'files' => [
+                    null
+                ]
+            ]
+        );
+        $method->getFields();
+    }
+
     public function testGetAction()
     {
         $this->assertSame('sc/prepare', $this->method->getAction());
@@ -50,5 +94,15 @@ class ScPrepareTest extends TestCase
     public function testCreateResult()
     {
         $this->assertInstanceOf('Isign\Sign\ScPrepareResult', $this->method->createResult());
+    }
+
+    public function testHasValidationConstraints()
+    {
+        $collection = $this->method->getValidationConstraints();
+
+        $this->assertInstanceOf(
+            'Symfony\Component\Validator\Constraints\Collection',
+            $collection
+        );
     }
 }

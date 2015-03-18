@@ -37,6 +37,16 @@ class CheckTest extends TestCase
         $this->assertSame(self::NAME, $fields['file']['name']);
     }
 
+    /**
+     * @expectedException \RuntimeException
+     * @expectedExceptionMessage File "" does not exist
+     */
+    public function testGetFileFieldsWithNonExistingFile()
+    {
+        $method = new Check(self::TYPE, null);
+        $method->getFields();
+    }
+
     public function testGetAction()
     {
         $this->assertSame('check', $this->query->getAction());
@@ -50,5 +60,15 @@ class CheckTest extends TestCase
     public function testCreateResult()
     {
         $this->assertInstanceOf('Isign\Document\CheckResult', $this->query->createResult());
+    }
+
+    public function testHasValidationConstraints()
+    {
+        $collection = $this->query->getValidationConstraints();
+
+        $this->assertInstanceOf(
+            'Symfony\Component\Validator\Constraints\Collection',
+            $collection
+        );
     }
 }
