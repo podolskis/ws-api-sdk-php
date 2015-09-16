@@ -5,7 +5,6 @@ namespace Isign\Login;
 
 use Isign\QueryInterface;
 use Isign\ResultInterface;
-use Isign\TokenizedQueryInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class ScVerify implements QueryInterface
