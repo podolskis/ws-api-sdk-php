@@ -1,8 +1,8 @@
 <?php
 namespace Isign\Tests\Sign;
 
-use Isign\Sign\MobileResult;
 use Isign\QueryInterface;
+use Isign\Sign\MobileResult;
 use Isign\Tests\TestCase;
 use Isign\Tests\TestResultFieldsTrait;
 
