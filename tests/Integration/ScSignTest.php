@@ -2,6 +2,7 @@
 namespace Isign\Tests\Integration;
 
 
+use Isign\ResultInterface;
 use Isign\Sign\Sc;
 use Isign\Sign\ScPrepare;
 use Isign\Sign\ScPrepareResult;
@@ -34,7 +35,11 @@ class ScSignTest extends TestCase
             $this->getDocumentParams()
         ));
 
-        $this->assertSame(StatusResultInterface::STATUS_OK, $result->getStatus());
+        $this->assertSame(ResultInterface::STATUS_OK, $result->getStatus());
+        $this->assertNotEmpty($result->getAlgorithm());
+        $this->assertNotEmpty($result->getToken());
+        $this->assertNotEmpty($result->getDtbsHash());
+        $this->assertNotEmpty($result->getDtbs());
 
         return $result;
     }
@@ -48,8 +53,9 @@ class ScSignTest extends TestCase
     {
         $result = $this->client->get(new Sc($result->getToken(), $this->sign($result->getDtbs(), PRIVATE_KEY_SIGN)));
 
-        $this->assertSame(StatusResultInterface::STATUS_OK, $result->getStatus());
+        $this->assertSame(ResultInterface::STATUS_OK, $result->getStatus());
         $this->assertSame('Signature1', $result->getSignatureId());
+        $this->assertNotEmpty($result->getFile());
     }
 
     /**
@@ -60,7 +66,7 @@ class ScSignTest extends TestCase
     public function testBadRequest()
     {
         $documentParams = $this->getDocumentParams();
-        unset($documentParams['reason']);
+        unset($documentParams['contact']);
         /** @var Isign\Sign\MobileResult $result */
         $result = $this->client->get(new ScPrepare(
             base64_encode(CERTIFICATE_SIGN),

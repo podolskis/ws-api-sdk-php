@@ -25,7 +25,7 @@ class MobileResult implements ResultInterface
     {
         return [
             'status',
-            'controlCode',
+            'control_code',
             'token',
         ];
     }

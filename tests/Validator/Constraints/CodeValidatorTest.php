@@ -82,6 +82,7 @@ class CodeValidatorTest extends AbstractConstraintValidatorTest
 
         $this->buildViolation('myMessage')
             ->setParameter('{{ value }}', '"'.$code.'"')
+            ->setCode(Code::REGEX_FAILED_ERROR)
             ->assertRaised();
     }
 

@@ -83,6 +83,7 @@ class PhoneValidatorTest extends AbstractConstraintValidatorTest
 
         $this->buildViolation('myMessage')
             ->setParameter('{{ value }}', '"'.$phone.'"')
+            ->setCode(Phone::REGEX_FAILED_ERROR)
             ->assertRaised();
     }
 

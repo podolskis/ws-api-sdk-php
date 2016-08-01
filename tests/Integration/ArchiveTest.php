@@ -3,6 +3,7 @@ namespace Isign\Tests\Integration;
 
 
 use Isign\Document\Archive;
+use Isign\ResultInterface;
 use Isign\StatusResultInterface;
 
 class ArchiveTest extends TestCase
@@ -54,6 +55,6 @@ class ArchiveTest extends TestCase
             ]
         ));
 
-        $this->assertSame(StatusResultInterface::STATUS_OK, $statusResult->getStatus());
+        $this->assertSame(ResultInterface::STATUS_OK, $statusResult->getStatus());
     }
 }

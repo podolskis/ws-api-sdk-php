@@ -3,6 +3,7 @@ namespace Isign\Tests\Integration;
 
 
 use Isign\Document\Check;
+use Isign\ResultInterface;
 use Isign\StatusResultInterface;
 
 class CheckTest extends TestCase
@@ -41,9 +42,9 @@ class CheckTest extends TestCase
     {
         /** @var StatusResultInterface $statusResult */
         $statusResult = $this->client->get(
-            new Check('pdf', __DIR__.'/../data/document.pdf')
+            new Check('pdf', __DIR__.'/../data/signed.pdf')
         );
 
-        $this->assertSame(StatusResultInterface::STATUS_OK, $statusResult->getStatus());
+        $this->assertSame(ResultInterface::STATUS_OK, $statusResult->getStatus());
     }
 }

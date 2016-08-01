@@ -8,9 +8,6 @@ use Isign\StatusResultInterface;
  */
 class MobileStatusResult implements StatusResultInterface
 {
-    const WAITING = 'waiting';
-    const OK = 'ok';
-
     /** @var string response status */
     private $status;
 
