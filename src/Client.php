@@ -11,14 +11,14 @@ use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
- * iSign.io API client
+ * ISIGN.io API client
  */
 class Client
 {
     /** @var boolean use sandbox */
     private $sandbox = false;
 
-    /** @var string API access key, given by iSign.io administrators */
+    /** @var string API access key, given by ISIGN.io administrators */
     private $apiKey = null;
 
     /** @var string production API url */

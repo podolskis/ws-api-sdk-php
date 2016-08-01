@@ -1,4 +1,4 @@
-# iSign.io API PHP Client
+# ISIGN.io API PHP Client
 
 ## How to start?
 
