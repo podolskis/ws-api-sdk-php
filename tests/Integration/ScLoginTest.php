@@ -29,7 +29,7 @@ class ScLoginTest extends TestCase
     {
         /** @var StatusResultInterface $statusResult */
         $statusResult = $this->client->get(
-            new ScVerify($result->getToken(), $this->sign($result->getDtbs()))
+            new ScVerify($result->getToken(), $this->sign($result->getDtbs(), PRIVATE_KEY_LOGIN))
         );
         $this->assertSame(StatusResultInterface::STATUS_OK, $statusResult->getStatus());
     }

@@ -46,7 +46,7 @@ class ScSignTest extends TestCase
      */
     public function testSign(ScPrepareResult $result)
     {
-        $result = $this->client->get(new Sc($result->getToken(), $this->sign($result->getDtbs())));
+        $result = $this->client->get(new Sc($result->getToken(), $this->sign($result->getDtbs(), PRIVATE_KEY_SIGN)));
 
         $this->assertSame(StatusResultInterface::STATUS_OK, $result->getStatus());
         $this->assertSame('Signature1', $result->getSignatureId());

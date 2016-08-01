@@ -31,9 +31,9 @@ class TestCase extends \PHPUnit_Framework_TestCase
         $this->client = Client::create($params, $log);
     }
 
-    protected function sign($dtbs)
+    protected function sign($dtbs, $key)
     {
-        openssl_sign(base64_decode($dtbs), $signatureValue, PRIVATE_KEY_LOGIN, OPENSSL_ALGO_SHA1);
+        openssl_sign(base64_decode($dtbs), $signatureValue, $key, OPENSSL_ALGO_SHA256);
 
         return base64_encode($signatureValue);
     }
