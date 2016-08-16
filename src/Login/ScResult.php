@@ -23,6 +23,8 @@ class ScResult implements ResultInterface
     private $country;
     /** @var string user's login certificate */
     private $certificate;
+    /** @var string signature algorithm */
+    private $algorithm;
     /**
      * Fields expected in response
      * @return array
@@ -37,7 +39,8 @@ class ScResult implements ResultInterface
             'surname',
             'code',
             'country',
-            'certificate'
+            'certificate',
+            'algorithm'
         ];
     }
 
@@ -167,5 +170,24 @@ class ScResult implements ResultInterface
     public function setCertificate($certificate)
     {
         $this->certificate = $certificate;
+    }
+ 
+    /**
+     * Gets the value of algorithm.
+     * @return mixed
+     */
+    public function getAlgorithm()
+    {
+        return $this->algorithm;
+    }
+ 
+    /**
+     * Sets the value of algorithm.
+     * @param mixed $algorithm the algorithm
+     * @return void
+     */
+    public function setAlgorithm($algorithm)
+    {
+        $this->algorithm = $algorithm;
     }
 }

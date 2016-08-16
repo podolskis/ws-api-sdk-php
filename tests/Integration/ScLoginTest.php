@@ -17,7 +17,8 @@ class ScLoginTest extends TestCase
         $result = $this->client->get(
             new Sc(base64_encode(CERTIFICATE_LOGIN))
         );
-
+        $this->assertSame('sha256', $result->getAlgorithm());
+        
         return $result;
     }
 
@@ -31,6 +32,7 @@ class ScLoginTest extends TestCase
         $statusResult = $this->client->get(
             new ScVerify($result->getToken(), $this->sign($result->getDtbs(), PRIVATE_KEY_LOGIN))
         );
+
         $this->assertSame(StatusResultInterface::STATUS_OK, $statusResult->getStatus());
     }
 }
