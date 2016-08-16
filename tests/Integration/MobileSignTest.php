@@ -1,6 +1,7 @@
 <?php
 namespace Isign\Tests\Integration;
 
+use Isign\ResultInterface;
 use Isign\Sign;
 
 class MobileSignTest extends TestCase
@@ -14,6 +15,10 @@ class MobileSignTest extends TestCase
             CODE,
             $this->getDocumentParams()
         ));
+
+        $this->assertSame(ResultInterface::STATUS_OK, $result->getStatus());
+        $this->assertNotEmpty($result->getControlCode());
+        $this->assertNotEmpty($result->getToken());
 
         return $result;
     }
@@ -29,7 +34,7 @@ class MobileSignTest extends TestCase
             new Sign\MobileStatus($result->getToken())
         );
 
-        $this->assertSame(Sign\MobileStatusResult::STATUS_WAITING, $statusResult->getStatus());
+        $this->assertSame(ResultInterface::STATUS_WAITING, $statusResult->getStatus());
 
         return $result;
     }
@@ -46,7 +51,9 @@ class MobileSignTest extends TestCase
         $statusResult = $this->client->get(
             new Sign\MobileStatus($result->getToken())
         );
-        $this->assertSame(Sign\MobileStatusResult::STATUS_OK, $statusResult->getStatus());
+        $this->assertSame(ResultInterface::STATUS_OK, $statusResult->getStatus());
+        $this->assertSame('Signature1', $statusResult->getSignatureId());
+        $this->assertNotEmpty($statusResult->getFile());
     }
 
     /**

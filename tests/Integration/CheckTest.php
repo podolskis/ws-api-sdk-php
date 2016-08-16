@@ -2,7 +2,9 @@
 namespace Isign\Tests\Integration;
 
 
+use Isign\DocumentTypeGuesser;
 use Isign\Document\Check;
+use Isign\ResultInterface;
 use Isign\StatusResultInterface;
 
 class CheckTest extends TestCase
@@ -39,11 +41,16 @@ class CheckTest extends TestCase
 
     public function testStatusOk()
     {
+        $file = __DIR__.'/../data/signed.pdf';
+
+        $guesser = new DocumentTypeGuesser();
+        $type = $guesser->guess($file);
+
         /** @var StatusResultInterface $statusResult */
         $statusResult = $this->client->get(
-            new Check('pdf', __DIR__.'/../data/document.pdf')
+            new Check($type, $file)
         );
 
-        $this->assertSame(StatusResultInterface::STATUS_OK, $statusResult->getStatus());
+        $this->assertSame(ResultInterface::STATUS_OK, $statusResult->getStatus());
     }
 }

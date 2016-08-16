@@ -2,6 +2,7 @@
 namespace Isign\Tests\Integration;
 
 use Isign\Login;
+use Isign\ResultInterface;
 
 class MobileLoginTest extends TestCase
 {
@@ -25,7 +26,7 @@ class MobileLoginTest extends TestCase
         $statusResult = $this->client->get(
             new Login\MobileStatus($result->getToken())
         );
-        $this->assertSame(Login\MobileStatusResult::WAITING, $statusResult->getStatus());
+        $this->assertSame(ResultInterface::STATUS_WAITING, $statusResult->getStatus());
 
         return $result;
     }
@@ -42,7 +43,7 @@ class MobileLoginTest extends TestCase
         $statusResult = $this->client->get(
             new Login\MobileStatus($result->getToken())
         );
-        $this->assertSame(Login\MobileStatusResult::OK, $statusResult->getStatus());
+        $this->assertSame(ResultInterface::STATUS_OK, $statusResult->getStatus());
     }
 
     /**

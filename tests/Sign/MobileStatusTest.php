@@ -1,8 +1,8 @@
 <?php
 namespace Isign\Tests\Sign;
 
-use Isign\Sign\MobileStatus;
 use Isign\QueryInterface;
+use Isign\Sign\MobileStatus;
 use Isign\Tests\TestCase;
 
 class MobileStatusTest extends TestCase

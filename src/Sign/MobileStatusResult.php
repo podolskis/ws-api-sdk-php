@@ -8,23 +8,11 @@ use Isign\ResultInterface;
  */
 class MobileStatusResult implements ResultInterface
 {
-    /**
-     * Successful response
-     */
-    const STATUS_OK = 'ok';
-
-    /**
-     * Transaction in progress
-     */
-    const STATUS_WAITING = 'waiting';
-
-    /**
-     * Unexpected error occurred
-     */
-    const STATUS_UNKNOWN = 'unknown';
-
     /** @var string response status */
     private $status;
+
+    /** @var string signature id */
+    private $signatureId;
 
     /** @var array signed document file */
     private $file = array();
@@ -37,6 +25,7 @@ class MobileStatusResult implements ResultInterface
     {
         return [
             'status',
+            'signature_id',
             'file'
         ];
     }
@@ -77,5 +66,24 @@ class MobileStatusResult implements ResultInterface
     public function setFile($file)
     {
         $this->file = $file;
+    }
+ 
+    /**
+     * Gets the value of signatureId.
+     * @return mixed
+     */
+    public function getSignatureId()
+    {
+        return $this->signatureId;
+    }
+ 
+    /**
+     * Sets the value of signatureId.
+     * @param mixed $signatureId the signature id
+     * @return void
+     */
+    public function setSignatureId($signatureId)
+    {
+        $this->signatureId = $signatureId;
     }
 }
