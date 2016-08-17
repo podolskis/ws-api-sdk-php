@@ -52,5 +52,6 @@ class CheckTest extends TestCase
         );
 
         $this->assertSame(ResultInterface::STATUS_OK, $statusResult->getStatus());
+        $this->assertNotEmpty($statusResult->getStructure());
     }
 }
