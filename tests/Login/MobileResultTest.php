@@ -21,7 +21,7 @@ class MobileResultTest extends TestCase
     {
         return [
             ['status'],
-            ['controlCode'],
+            ['control_code'],
             ['token'],
             ['name'],
             ['surname'],

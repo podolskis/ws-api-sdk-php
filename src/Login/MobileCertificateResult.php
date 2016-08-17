@@ -21,10 +21,10 @@ class MobileCertificateResult implements ResultInterface
     private $country;
 
     /** @var string user's signing certificate */
-    private $certificate;
+    private $signingCertificate;
 
     /** @var  string user's login certificate  */
-    private $authCertificate;
+    private $authenticationCertificate;
 
     /**
      * Fields expected in response
@@ -38,120 +38,141 @@ class MobileCertificateResult implements ResultInterface
             'surname',
             'code',
             'country',
-            'certificate',
-            'authCertificate'
+            'signing_certificate',
+            'authentication_certificate'
         ];
     }
-
+ 
     /**
-     * @return string
+     * Gets the value of status.
+     * @return mixed
      */
     public function getStatus()
     {
         return $this->status;
     }
-
+ 
     /**
-     * @param string $status
+     * Sets the value of status.
+     * @param mixed $status the status
+     * @return void
      */
     public function setStatus($status)
     {
         $this->status = $status;
     }
-
+ 
     /**
-     * @return string
+     * Gets the value of name.
+     * @return mixed
      */
     public function getName()
     {
         return $this->name;
     }
-
+ 
     /**
-     * @param string $name
+     * Sets the value of name.
+     * @param mixed $name the name
+     * @return void
      */
     public function setName($name)
     {
         $this->name = $name;
     }
-
+ 
     /**
-     * @return string
+     * Gets the value of surname.
+     * @return mixed
      */
     public function getSurname()
     {
         return $this->surname;
     }
-
+ 
     /**
-     * @param string $surname
+     * Sets the value of surname.
+     * @param mixed $surname the surname
+     * @return void
      */
     public function setSurname($surname)
     {
         $this->surname = $surname;
     }
-
+ 
     /**
-     * @return string
+     * Gets the value of code.
+     * @return mixed
      */
     public function getCode()
     {
         return $this->code;
     }
-
+ 
     /**
-     * @param string $code
+     * Sets the value of code.
+     * @param mixed $code the code
+     * @return void
      */
     public function setCode($code)
     {
         $this->code = $code;
     }
-
+ 
     /**
-     * @return string
+     * Gets the value of country.
+     * @return mixed
      */
     public function getCountry()
     {
         return $this->country;
     }
-
+ 
     /**
-     * @param string $country
+     * Sets the value of country.
+     * @param mixed $country the country
+     * @return void
      */
     public function setCountry($country)
     {
         $this->country = $country;
     }
-
+ 
     /**
-     * @return string
+     * Gets the value of signingCertificate.
+     * @return mixed
      */
-    public function getCertificate()
+    public function getSigningCertificate()
     {
-        return $this->certificate;
+        return $this->signingCertificate;
     }
-
+ 
     /**
-     * @param string $certificate
+     * Sets the value of signingCertificate.
+     * @param mixed $signingCertificate the signing certificate
+     * @return void
      */
-    public function setCertificate($certificate)
+    public function setSigningCertificate($signingCertificate)
     {
-        $this->certificate = $certificate;
+        $this->signingCertificate = $signingCertificate;
     }
-
+ 
     /**
-     * @return string
+     * Gets the value of authenticationCertificate.
+     * @return mixed
      */
-    public function getAuthCertificate()
+    public function getAuthenticationCertificate()
     {
-        return $this->authCertificate;
+        return $this->authenticationCertificate;
     }
-
+ 
     /**
-     * @param string $authCertificate
+     * Sets the value of authenticationCertificate.
+     * @param mixed $authenticationCertificate the authentication certificate
+     * @return void
      */
-    public function setAuthCertificate($authCertificate)
+    public function setAuthenticationCertificate($authenticationCertificate)
     {
-        $this->authCertificate = $authCertificate;
+        $this->authenticationCertificate = $authenticationCertificate;
     }
 }

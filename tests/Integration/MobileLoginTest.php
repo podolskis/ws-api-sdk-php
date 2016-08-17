@@ -13,6 +13,15 @@ class MobileLoginTest extends TestCase
             new Login\Mobile(PHONE, CODE)
         );
 
+        $this->assertSame(ResultInterface::STATUS_OK, $result->getStatus());
+        $this->assertNotEmpty($result->getCountry());
+        $this->assertNotEmpty($result->getCode());
+        $this->assertNotEmpty($result->getName());
+        $this->assertNotEmpty($result->getSurname());
+        $this->assertNotEmpty($result->getCertificate());
+        $this->assertNotEmpty($result->getToken());
+        $this->assertNotEmpty($result->getControlCode());
+
         return $result;
     }
 

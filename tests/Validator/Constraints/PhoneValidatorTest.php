@@ -83,7 +83,7 @@ class PhoneValidatorTest extends AbstractConstraintValidatorTest
 
         $this->buildViolation('myMessage')
             ->setParameter('{{ value }}', '"'.$phone.'"')
-            ->setCode(Phone::REGEX_FAILED_ERROR)
+            ->setCode(defined('Isign\Validator\Constraints\Phone::REGEX_FAILED_ERROR')?Phone::REGEX_FAILED_ERROR:null)
             ->assertRaised();
     }
 
