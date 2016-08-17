@@ -24,8 +24,8 @@ class MobileCertificateResultTest extends TestCase
             ['surname'],
             ['code'],
             ['country'],
-            ['certificate'],
-            ['authCertificate']
+            ['signingCertificate'],
+            ['authenticationCertificate']
         ];
     }
 }
