@@ -20,8 +20,10 @@ class ScPrepareResultTest extends TestCase
     {
         return [
             ['status'],
+            ['algorithm'],
+            ['token'],
             ['dtbs'],
-            ['token']
+            ['dtbs_hash'],
         ];
     }
 }
