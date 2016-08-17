@@ -9,8 +9,6 @@ use Symfony\Component\Validator\Constraints\Regex;
  */
 class Code extends Regex
 {
-    const REGEX_FAILED_ERROR = 'de1e3db3-5ed4-4941-aae4-59f3667cc3a3';
-    
     /**
      * Base validation pattern which includes + char only,
      * all other parts are built on the fly
