@@ -27,7 +27,8 @@ class ScResultTest extends TestCase
             ['surname'],
             ['code'],
             ['country'],
-            ['certificate']
+            ['certificate'],
+            ['algorithm'],
         ];
     }
 }

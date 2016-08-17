@@ -17,8 +17,18 @@ class ScLoginTest extends TestCase
         $result = $this->client->get(
             new Sc(base64_encode(CERTIFICATE_LOGIN))
         );
+
+        $this->assertSame(StatusResultInterface::STATUS_OK, $result->getStatus());
+        $this->assertNotEmpty($result->getDtbs());
+        $this->assertNotEmpty($result->getToken());
+        $this->assertNotEmpty($result->getName());
+        $this->assertNotEmpty($result->getSurname());
+        $this->assertEmpty($result->getCode());
+        $this->assertNotEmpty($result->getCountry());
+        $this->assertNotEmpty($result->getEmail());
+        $this->assertNotEmpty($result->getCertificate());
         $this->assertSame('sha256', $result->getAlgorithm());
-        
+
         return $result;
     }
 
