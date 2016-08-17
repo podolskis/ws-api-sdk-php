@@ -27,6 +27,11 @@ class ScVerifyResultTest extends TestCase
     {
         return [
             ['status'],
+            ['name'],
+            ['surname'],
+            ['code'],
+            ['email'],
+            ['country'],
         ];
     }
 }
