@@ -22,7 +22,7 @@ class Client
     private $apiKey = null;
 
     /** @var string production API url */
-    private $url = 'https://api.isign.io';
+    private $url = 'https://api2.isign.io';
 
     /** @var string sandbox mode API url. Used if $sandbox is true */
     private $sandboxUrl = 'https://developers.isign.io';
@@ -39,7 +39,7 @@ class Client
      * @param array $options Available properties: [
      *     'apiKey' => 'xxxxxx',
      *     'sandbox' => true,
-     *     'url' => 'https://api.isign.io',
+     *     'url' => 'https://api2.isign.io',
      *     'sandboxUrl' => 'https://developers.isign.io',
      * ]
      * @param LoggerInterface|callable|resource|null $logger Logger used to log
