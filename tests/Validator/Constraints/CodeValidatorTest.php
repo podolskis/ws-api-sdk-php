@@ -47,7 +47,7 @@ class CodeValidatorTest extends ConstraintValidatorTestCase
     public function testValidCodes($code)
     {
         $this->validator->validate($code, new Code());
-        
+
         $this->assertNoViolation();
     }
 

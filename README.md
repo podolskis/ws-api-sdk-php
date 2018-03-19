@@ -17,7 +17,7 @@ Check integration tests under `tests/Integration` for library use cases.
 Set second parameter to `true`.
 
     $client = Isign\Client::create([
-        'apiKey' => 'xxxxxx',
+        'apiKey' => 'xxxxxx', //Your API key
         'sandbox' => true,
     ], true);
 
@@ -38,7 +38,9 @@ Set second parameter to `true`.
 Read more:
 
 http://www.php-fig.org/psr/psr-3/
+
 https://github.com/guzzle/log-subscriber
+
 https://github.com/Seldaek/monolog
 
 
@@ -72,8 +74,3 @@ Running integrational tests only:
 Running single testcase:
 
     phpunit tests/Integration/MobileSignTest.php
-
-
-## TODO
-
-    - Add 'mobile/sign/hash.json' support

@@ -47,7 +47,7 @@ class PhoneValidatorTest extends ConstraintValidatorTestCase
     public function testValidPhones($phone)
     {
         $this->validator->validate($phone, new Phone());
-        
+
         $this->assertNoViolation();
     }
 

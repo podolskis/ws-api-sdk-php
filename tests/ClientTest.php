@@ -87,7 +87,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame(false, $client->isSandbox());
-        $this->assertSame('https://api.isign.io', $client->getUrl());
+        $this->assertSame('https://api2.isign.io', $client->getUrl());
         $this->assertSame('https://developers.isign.io', $client->getSandboxUrl());
     }
 
@@ -131,7 +131,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ['apiKey' => 'xxxxxx']
         );
         $this->assertEquals(
-            'https://api.isign.io/login.json',
+            'https://api2.isign.io/login.json',
             $client->getFullMethodUrl('login')
         );
     }
