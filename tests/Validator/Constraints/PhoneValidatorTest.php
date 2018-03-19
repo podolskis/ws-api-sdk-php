@@ -4,7 +4,7 @@ namespace Isign\Tests\Validator\Constraints;
 
 use Isign\Validator\Constraints\Phone;
 use Isign\Validator\Constraints\PhoneValidator;
-use Symfony\Component\Validator\Tests\ConstraintValidatorTestCase;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
 
 class PhoneValidatorTest extends ConstraintValidatorTestCase
@@ -47,7 +47,7 @@ class PhoneValidatorTest extends ConstraintValidatorTestCase
     public function testValidPhones($phone)
     {
         $this->validator->validate($phone, new Phone());
-        
+
         $this->assertNoViolation();
     }
 

@@ -4,7 +4,7 @@ namespace Isign\Tests\Validator\Constraints;
 
 use Isign\Validator\Constraints\Code;
 use Isign\Validator\Constraints\CodeValidator;
-use Symfony\Component\Validator\Tests\ConstraintValidatorTestCase;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
 
 class CodeValidatorTest extends ConstraintValidatorTestCase
@@ -47,7 +47,7 @@ class CodeValidatorTest extends ConstraintValidatorTestCase
     public function testValidCodes($code)
     {
         $this->validator->validate($code, new Code());
-        
+
         $this->assertNoViolation();
     }
 
