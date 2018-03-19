@@ -1,7 +1,6 @@
 <?php
 namespace Isign\Tests\Integration;
 
-
 use Isign\ResultInterface;
 use Isign\Sign\Sc;
 use Isign\Sign\ScPrepare;
@@ -10,8 +9,8 @@ use Isign\Sign\ScPrepareResult;
 class ScSignTest extends TestCase
 {
     /**
-    * @expectedException Isign\Exception\QueryValidator
-    */
+     * @expectedException Isign\Exception\QueryValidator
+     */
     public function testRequiredParams()
     {
         $this->client->get(new ScPrepare(

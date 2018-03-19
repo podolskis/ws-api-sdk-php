@@ -14,10 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Mobile implements QueryInterface
 {
     use FileFieldsTrait;
-    
+
     /** @var string document type */
     private $type;
-    
+
     /** @var string user phone number */
     private $phone;
 

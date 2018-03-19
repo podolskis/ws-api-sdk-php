@@ -34,7 +34,7 @@ class SmartIdCertificateResultTest extends TestCase
             ['code'],
             ['country'],
             ['name'],
-            ['surname'],  
+            ['surname'],
         ];
     }
 }

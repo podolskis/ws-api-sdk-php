@@ -14,7 +14,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
         $object = new InvalidData($message, $code, $previous, $data);
 
-        $message .= ' Response: ' . var_export($data, true);
+        $message .= ' Response: '.var_export($data, true);
         $this->assertEquals($data, $object->getResponseData());
         $this->assertEquals($message, $object->getMessage());
         $this->assertEquals($code, $object->getCode());

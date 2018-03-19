@@ -163,10 +163,10 @@ class Client
         }
 
         if ($token) {
-            $action .= '/' . $token;
+            $action .= '/'.$token;
         }
 
-        return $url . '/' . $action . '.json';
+        return $url.'/'.$action.'.json';
     }
 
     /**
@@ -213,16 +213,16 @@ class Client
     private function prepareOptions(array $options)
     {
         if (isset($options['sandbox'])) {
-            $this->sandbox = (bool)$options['sandbox'];
+            $this->sandbox = (bool) $options['sandbox'];
         }
         if (isset($options['apiKey'])) {
-            $this->apiKey = (string)$options['apiKey'];
+            $this->apiKey = (string) $options['apiKey'];
         }
         if (isset($options['url'])) {
-            $this->url = (string)$options['url'];
+            $this->url = (string) $options['url'];
         }
         if (isset($options['sandboxUrl'])) {
-            $this->sandboxUrl = (string)$options['sandboxUrl'];
+            $this->sandboxUrl = (string) $options['sandboxUrl'];
         }
     }
 

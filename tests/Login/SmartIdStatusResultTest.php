@@ -36,7 +36,7 @@ class SmartIdStatusResultTest extends TestCase
             ['code'],
             ['country'],
             ['name'],
-            ['surname'],  
+            ['surname'],
         ];
     }
 }
