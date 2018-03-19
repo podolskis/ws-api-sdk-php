@@ -14,7 +14,6 @@ class QueryValidator extends \InvalidArgumentException
     /**
      * @param string $message
      * @param ConstraintViolationList $violations
-     * @return self
      */
     public function __construct($message, ConstraintViolationList $violations)
     {

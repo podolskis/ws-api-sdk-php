@@ -14,7 +14,6 @@ class Request extends \RuntimeException
      * @param integer $code
      * @param \Exception $previousException
      * @param mixed $responseData
-     * @return self
      */
     public function __construct(
         $message,
