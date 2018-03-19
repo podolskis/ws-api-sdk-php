@@ -22,7 +22,6 @@ class Code extends Regex
 
     /**
      * @param mixed $options
-     * @return self
      */
     public function __construct($options = null)
     {

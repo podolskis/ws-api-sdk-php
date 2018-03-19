@@ -44,7 +44,6 @@ class Mobile implements QueryInterface
      * @param string $language language used for login message
      * @param string $message custom login message to be displayed in mobile phone
      * @param boolean $timestamp add document timestamp
-     * @return self
      */
     public function __construct(
         $type,
