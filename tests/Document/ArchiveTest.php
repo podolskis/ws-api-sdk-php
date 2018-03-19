@@ -4,7 +4,6 @@
 namespace Isign\Tests\Document;
 
 use Isign\Document\Archive;
-use Isign\Document\Check;
 use Isign\QueryInterface;
 use Isign\Tests\TestCase;
 
@@ -13,14 +12,14 @@ class ArchiveTest extends TestCase
     const TYPE = 'pdf';
     const NAME = 'document.pdf';
 
-    /** @var  Check */
+    /** @var Archive */
     private $query;
 
     public function setUp()
     {
         $this->query = new Archive(
             self::TYPE,
-            __DIR__ . '/../data/document.pdf',
+            __DIR__.'/../data/document.pdf',
             [
                 ['id' => 'signature_0'],
                 ['id' => 'signature_1']
