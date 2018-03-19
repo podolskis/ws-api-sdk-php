@@ -3,7 +3,6 @@ namespace Isign\Tests\Http;
 
 use GuzzleHttp\Exception\ClientException;
 use Isign\Http\GuzzleClientAdapter;
-use Psr\Log\LoggerAwareInterface;
 
 class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
 {

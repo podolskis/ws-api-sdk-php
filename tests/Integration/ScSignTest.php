@@ -6,7 +6,6 @@ use Isign\ResultInterface;
 use Isign\Sign\Sc;
 use Isign\Sign\ScPrepare;
 use Isign\Sign\ScPrepareResult;
-use Isign\StatusResultInterface;
 
 class ScSignTest extends TestCase
 {
