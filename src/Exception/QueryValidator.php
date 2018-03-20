@@ -8,14 +8,14 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
  */
 class QueryValidator extends \InvalidArgumentException
 {
-    /** @var ConstraintViolationList */
+    /** @var ConstraintViolationListInterface */
     private $violations;
 
     /**
      * @param string $message
      * @param ConstraintViolationListInterface $violations
      */
-    public function __construct($message, ConstraintViolationList $violations)
+    public function __construct($message, ConstraintViolationListInterface $violations)
     {
         parent::__construct($message.': '.(string)$violations);
 
