@@ -4,7 +4,6 @@ namespace Isign\Tests\Integration;
 use Isign\DocumentTypeGuesser;
 use Isign\Document\Check;
 use Isign\ResultInterface;
-use Isign\StatusResultInterface;
 
 class CheckTest extends TestCase
 {
