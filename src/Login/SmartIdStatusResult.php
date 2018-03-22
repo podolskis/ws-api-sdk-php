@@ -35,7 +35,7 @@ class SmartIdStatusResult extends AbstractStatusResult
             'code',
             'country',
             'name',
-            'surname',    
+            'surname',
         ];
     }
     

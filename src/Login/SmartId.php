@@ -8,7 +8,7 @@ class SmartId extends AbstractSmartIdQuery
 {
     /**
      * Result object for this query result
-     * 
+     *
      * @return SmartIdResult
      */
     public function createResult()

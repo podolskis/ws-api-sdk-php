@@ -95,7 +95,7 @@ class MobileSignTest extends TestCase
             'reason' => 'Dokumento asirašymas',
             'location' => 'Vilnius',
             'files' => [
-               __DIR__ . '/../data/document.pdf',
+                __DIR__.'/../data/document.pdf',
             ]
         ];
     }

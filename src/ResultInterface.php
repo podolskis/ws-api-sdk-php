@@ -7,12 +7,12 @@ namespace Isign;
 interface ResultInterface
 {
     /**
-     * Identifies successful API response 
+     * Identifies successful API response
      */
     const STATUS_OK = 'ok';
 
-    /** 
-     * API's error response 
+    /**
+     * API's error response
      */
     const STATUS_ERROR = 'error';
 

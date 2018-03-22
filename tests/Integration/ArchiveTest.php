@@ -1,7 +1,6 @@
 <?php
 namespace Isign\Tests\Integration;
 
-
 use Isign\Document\Archive;
 use Isign\ResultInterface;
 use Isign\StatusResultInterface;

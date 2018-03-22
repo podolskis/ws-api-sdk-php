@@ -34,20 +34,20 @@ class ResponseMapper implements ResponseMapperInterface
         if (!isset($response[$field])) {
             return;
         }
-        $method = 'set' . $this->toMethodName($field);
+        $method = 'set'.$this->toMethodName($field);
         $result->$method($response[$field]);
     }
 
     /**
      * Convert value to camel case method name with first capital letter
-     * @param string $value 
+     * @param string $value
      * @return string
      */
     private function toMethodName($value)
     {
         $parts = explode('_', $value);
         $parts = array_map('ucfirst', $parts);
-        
+
         return implode('', $parts);
     }
 }

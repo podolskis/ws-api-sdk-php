@@ -15,7 +15,6 @@ class GuzzleClientAdapter implements ClientInterface
 
     /**
      * @param type GuzzleHttp\ClientInterface $client
-     * @return self
      */
     public function __construct(GuzzleHttp\ClientInterface $client)
     {

@@ -15,7 +15,6 @@ abstract class AbstractStatus implements TokenizedQueryInterface
 
     /**
      * @param string $token unique resource identifier, received from mobile login request
-     * @return self
      */
     public function __construct($token)
     {

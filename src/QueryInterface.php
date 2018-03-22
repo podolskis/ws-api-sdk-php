@@ -10,12 +10,12 @@ interface QueryInterface
      * HTTP method POST
      */
     const POST = 'POST';
-    
+
     /**
      * HTTP method GET
      */
     const GET = 'GET';
-    
+
     /**
      * API action name, part of full API request url
      * @return string
@@ -33,10 +33,10 @@ interface QueryInterface
      * @return ResultInterface
      */
     public function createResult();
-    
+
     /**
      * Validation constraints for fields
-     * @return Symfony\Component\Validator\Constraints\Collection
+     * @return \Symfony\Component\Validator\Constraints\Collection
      */
     public function getValidationConstraints();
 

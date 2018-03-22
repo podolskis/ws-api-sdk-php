@@ -3,7 +3,6 @@ namespace Isign\Tests\Http;
 
 use GuzzleHttp\Exception\ClientException;
 use Isign\Http\GuzzleClientAdapter;
-use Psr\Log\LoggerAwareInterface;
 
 class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
 {
@@ -63,7 +62,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
     {
         $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
         $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
-        
+
         $response
             ->method('getStatusCode')
             ->willReturn(400)
@@ -102,7 +101,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
     {
         $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
         $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
-        
+
         $response
             ->method('getStatusCode')
             ->willReturn(403)
@@ -137,7 +136,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
     {
         $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
         $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
-        
+
         $response
             ->method('getStatusCode')
             ->willReturn(500)
@@ -172,7 +171,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
     {
         $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
         $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
-        
+
         $response
             ->method('getStatusCode')
             ->willReturn(504)
@@ -207,7 +206,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
     {
         $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
         $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
-        
+
         $response
             ->method('getStatusCode')
             ->willReturn(101)
