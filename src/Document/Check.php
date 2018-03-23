@@ -21,7 +21,7 @@ class Check implements QueryInterface
     /** @var string Possible values: pdf, adoc, mdoc */
     private $type;
 
-     /** @var string file path */
+    /** @var string file path */
     private $path;
 
     /**

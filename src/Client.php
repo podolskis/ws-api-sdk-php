@@ -22,7 +22,7 @@ class Client
     private $apiKey = null;
 
     /** @var string production API url */
-    private $url = 'https://api.isign.io';
+    private $url = 'https://api2.isign.io';
 
     /** @var string sandbox mode API url. Used if $sandbox is true */
     private $sandboxUrl = 'https://developers.isign.io';
@@ -33,16 +33,19 @@ class Client
     /** @var ResponseMapperInterface response to result object mapper */
     private $responseMapper;
 
+    /** @var ValidatorInterface */
+    private $validator;
+
     /**
      * Public factory method to create instance of Client.
      *
      * @param array $options Available properties: [
      *     'apiKey' => 'xxxxxx',
      *     'sandbox' => true,
-     *     'url' => 'https://api.isign.io',
+     *     'url' => 'https://api2.isign.io',
      *     'sandboxUrl' => 'https://developers.isign.io',
      * ]
-     * @param LoggerInterface|callable|resource|null $logger Logger used to log
+     * @param LoggerInterface|callable|resource|null $log Logger used to log
      *     messages. Pass a LoggerInterface to use a PSR-3 logger. Pass a
      *     callable to log messages to a function that accepts a string of
      *     data. Pass a resource returned from ``fopen()`` to log to an open
@@ -72,7 +75,6 @@ class Client
      * @param ResponseMapperInterface $responseMapper
      * @param ValidatorInterface $validator
      * @param array $options
-     * @return self
      */
     public function __construct(
         ClientInterface $client,
@@ -161,10 +163,10 @@ class Client
         }
 
         if ($token) {
-            $action .= '/' . $token;
+            $action .= '/'.$token;
         }
 
-        return $url . '/' . $action . '.json';
+        return $url.'/'.$action.'.json';
     }
 
     /**
@@ -199,7 +201,7 @@ class Client
             ],
             'body' => $fields,
         ];
-        
+
         return $this->client->sendRequest($method, $url, $options);
     }
 
@@ -211,16 +213,16 @@ class Client
     private function prepareOptions(array $options)
     {
         if (isset($options['sandbox'])) {
-            $this->sandbox = (bool)$options['sandbox'];
+            $this->sandbox = (bool) $options['sandbox'];
         }
         if (isset($options['apiKey'])) {
-            $this->apiKey = (string)$options['apiKey'];
+            $this->apiKey = (string) $options['apiKey'];
         }
         if (isset($options['url'])) {
-            $this->url = (string)$options['url'];
+            $this->url = (string) $options['url'];
         }
         if (isset($options['sandboxUrl'])) {
-            $this->sandboxUrl = (string)$options['sandboxUrl'];
+            $this->sandboxUrl = (string) $options['sandboxUrl'];
         }
     }
 

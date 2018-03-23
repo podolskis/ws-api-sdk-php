@@ -3,7 +3,6 @@
 
 namespace Isign\Tests\Document;
 
-
 use Isign\Document\ArchiveResult;
 use Isign\Tests\TestCase;
 use Isign\Tests\TestResultFieldsTrait;

@@ -1,21 +1,21 @@
 {
     "name": "isign/isign-sdk-php",
     "description": "Client for ISIGN.io e-signature API",
-    
+
     "type": "library",
     "license": "MIT",
     "homepage": "https://www.isign.io",
 
     "require": {
-        "php"                       : ">=5.4.0",
-        "guzzlehttp/guzzle"         : "~5.1",
+        "php"                       : ">=7.0.0",
+        "guzzlehttp/guzzle"         : "~5.3",
         "guzzlehttp/log-subscriber" : "~1.0",
-        "symfony/validator"         : "~2.6"
+        "symfony/validator"         : "~3.2|~4.0"
     },
     "require-dev": {
         "psr/log"           : "~1.0",
         "monolog/monolog"   : "~1.0",
-        "phpunit/phpunit"   : "~4.4"
+        "phpunit/phpunit"   : "~5.7"
     },
     "autoload": {
         "psr-4": {

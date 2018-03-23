@@ -12,7 +12,7 @@ class ScPrepareTest extends TestCase
     const TIMESTAMP = false;
     const LANGUAGE = 'LT';
 
-    /** @var  Prepare */
+    /** @var ScPrepare */
     private $method;
 
     public function setUp()

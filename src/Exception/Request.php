@@ -14,7 +14,6 @@ class Request extends \RuntimeException
      * @param integer $code
      * @param \Exception $previousException
      * @param mixed $responseData
-     * @return self
      */
     public function __construct(
         $message,
@@ -22,7 +21,7 @@ class Request extends \RuntimeException
         \Exception $previousException = null,
         $responseData = null
     ) {
-        $message .= ' Response: ' . var_export($responseData, true);
+        $message .= ' Response: '.var_export($responseData, true);
         parent::__construct($message, $code, $previousException);
         $this->responseData = $responseData;
     }

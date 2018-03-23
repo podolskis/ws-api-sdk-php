@@ -1,11 +1,9 @@
 <?php
 namespace Isign\Tests\Integration;
 
-
 use Isign\DocumentTypeGuesser;
 use Isign\Document\Check;
 use Isign\ResultInterface;
-use Isign\StatusResultInterface;
 
 class CheckTest extends TestCase
 {
@@ -27,7 +25,7 @@ class CheckTest extends TestCase
     public function testRequiredFileParameters()
     {
         try {
-            /** @var StatusResultInterface $statusResult */
+            /** @var Isign\Document\CheckResult $statusResult */
             $statusResult = $this->client->get(
                 new Check('pdf', null)
             );
@@ -46,7 +44,7 @@ class CheckTest extends TestCase
         $guesser = new DocumentTypeGuesser();
         $type = $guesser->guess($file);
 
-        /** @var StatusResultInterface $statusResult */
+        /** @var Isign\Document\CheckResult $statusResult */
         $statusResult = $this->client->get(
             new Check($type, $file)
         );

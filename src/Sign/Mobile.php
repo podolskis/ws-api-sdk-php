@@ -14,10 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Mobile implements QueryInterface
 {
     use FileFieldsTrait;
-    
+
     /** @var string document type */
     private $type;
-    
+
     /** @var string user phone number */
     private $phone;
 
@@ -44,7 +44,6 @@ class Mobile implements QueryInterface
      * @param string $language language used for login message
      * @param string $message custom login message to be displayed in mobile phone
      * @param boolean $timestamp add document timestamp
-     * @return self
      */
     public function __construct(
         $type,

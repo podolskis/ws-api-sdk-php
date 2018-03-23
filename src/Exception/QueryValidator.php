@@ -1,31 +1,30 @@
 <?php
 namespace Isign\Exception;
 
-use Symfony\Component\Validator\ConstraintViolationList;
+use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**
  * Validator found violations while validating query field values
  */
 class QueryValidator extends \InvalidArgumentException
 {
-    /** @var ConstraintViolationList */
+    /** @var ConstraintViolationListInterface */
     private $violations;
 
     /**
      * @param string $message
-     * @param ConstraintViolationList $violations
-     * @return self
+     * @param ConstraintViolationListInterface $violations
      */
-    public function __construct($message, ConstraintViolationList $violations)
+    public function __construct($message, ConstraintViolationListInterface $violations)
     {
-        parent::__construct($message . ': ' . (string)$violations);
+        parent::__construct($message.': '.(string) $violations);
 
         $this->violations = $violations;
     }
 
     /**
      * Get validation violations
-     * @return ConstraintViolationList
+     * @return ConstraintViolationListInterface
      */
     public function getViolations()
     {

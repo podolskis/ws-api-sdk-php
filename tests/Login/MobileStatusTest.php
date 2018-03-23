@@ -13,6 +13,11 @@ class MobileStatusTest extends TestCase
     {
         $this->method = new MobileStatus('xxx');
     }
+    
+    public function testItExtendsAbstractStatusClass()
+    {
+        $this->assertInstanceOf('Isign\Login\AbstractStatus', $this->method);
+    }
 
     public function testContainsToken()
     {

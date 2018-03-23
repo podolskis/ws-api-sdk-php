@@ -14,6 +14,11 @@ class MobileStatusResultTest extends TestCase
     {
         $this->method = new MobileStatusResult();
     }
+    
+    public function testItExtendsAbstractStatusClass()
+    {
+        $this->assertInstanceOf('Isign\Login\AbstractStatusResult', $this->method);
+    }
 
     public function testStatusInterface()
     {

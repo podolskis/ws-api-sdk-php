@@ -4,10 +4,10 @@ namespace Isign\Tests\Validator\Constraints;
 
 use Isign\Validator\Constraints\Code;
 use Isign\Validator\Constraints\CodeValidator;
-use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
 
-class CodeValidatorTest extends AbstractConstraintValidatorTest
+class CodeValidatorTest extends ConstraintValidatorTestCase
 {
     protected function getApiVersion()
     {
@@ -47,7 +47,7 @@ class CodeValidatorTest extends AbstractConstraintValidatorTest
     public function testValidCodes($code)
     {
         $this->validator->validate($code, new Code());
-        
+
         $this->assertNoViolation();
     }
 
@@ -55,7 +55,7 @@ class CodeValidatorTest extends AbstractConstraintValidatorTest
     {
         return array(
             // Test
-            array('14212128029'),
+            array('11412090004'),
             // Lithuania, Estonia
             array('39009090909'),
             array('39009090909'),
