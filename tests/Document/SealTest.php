@@ -23,9 +23,14 @@ class SealTest extends TestCase
     public function testGetFileFields()
     {
         $method = new Seal(
-            'pdf',
+            'asic',
             [
                 'files' => [
+                    [
+                        'name' => 'filename.pdf',
+                        'digest' => 'some digest',
+                        'content' => 'some content'
+                    ],
                     __DIR__.'/../data/document.pdf'
                 ]
             ],
@@ -33,13 +38,18 @@ class SealTest extends TestCase
         );
         $result = $method->getFields();
 
-        $this->assertArrayHasKey('pdf', $result);
-        $this->assertArrayHasKey('files', $result['pdf']);
-        $this->assertArrayHasKey(0, $result['pdf']['files']);
-        $file = $result['pdf']['files'][0];
-        $this->assertArrayHasKey('name', $file);
-        $this->assertArrayHasKey('digest', $file);
-        $this->assertArrayHasKey('content', $file);
+        $this->assertArrayHasKey('asic', $result);
+        $this->assertArrayHasKey('files', $result['asic']);
+        $this->assertArrayHasKey(0, $result['asic']['files']);
+        $file0 = $result['asic']['files'][0];
+        $this->assertArrayHasKey('name', $file0);
+        $this->assertArrayHasKey('digest', $file0);
+        $this->assertArrayHasKey('content', $file0);
+        $this->assertArrayHasKey(1, $result['asic']['files']);
+        $file1 = $result['asic']['files'][1];
+        $this->assertArrayHasKey('name', $file1);
+        $this->assertArrayHasKey('digest', $file1);
+        $this->assertArrayHasKey('content', $file1);
     }
 
     /**
