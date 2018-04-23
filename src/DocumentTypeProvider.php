@@ -5,6 +5,9 @@ namespace Isign;
 abstract class DocumentTypeProvider
 {
     const PDF = 'pdf';
+    const PDF_LT = 'pdflt';
+
+    const ASICE = 'asice';
 
     const ADOC = 'adoc';
     const ADOC_BEDOC = 'adoc.bedoc';
@@ -18,10 +21,16 @@ abstract class DocumentTypeProvider
     const MDOC_GEDOC = 'mdoc.gedoc';
     const MDOC_GGEDOC = 'mdoc.ggedoc';
 
+    const BDOC = 'bdoc';
+
+    const EDOC = 'edoc';
+
     final public static function getAllDocumentTypes()
     {
         return [
             self::PDF,
+            self::PDF_LT,
+            self::ASICE,
             self::ADOC,
             self::ADOC_BEDOC,
             self::ADOC_CEDOC,
@@ -31,7 +40,9 @@ abstract class DocumentTypeProvider
             self::MDOC_BEDOC,
             self::MDOC_CEDOC,
             self::MDOC_GEDOC,
-            self::MDOC_GGEDOC
+            self::MDOC_GGEDOC,
+            self::BDOC,
+            self::EDOC,
         ];
     }
 
@@ -39,8 +50,12 @@ abstract class DocumentTypeProvider
     {
         return [
             self::PDF,
+            self::PDF_LT,
+            self::ASICE,
             self::ADOC,
             self::MDOC,
+            self::BDOC,
+            self::EDOC,
         ];
     }
 }
