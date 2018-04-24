@@ -13,6 +13,6 @@ class DocumentTypeProviderTest extends TestCase
 
     public function testGetPrimaryDocumentTypes()
     {
-        $this->assertEquals(3, count(DocumentTypeProvider::getPrimaryDocumentTypes()));
+        $this->assertEquals(7, count(DocumentTypeProvider::getPrimaryDocumentTypes()));
     }
 }
