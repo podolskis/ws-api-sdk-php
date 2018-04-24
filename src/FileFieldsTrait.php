@@ -4,12 +4,16 @@ namespace Isign;
 trait FileFieldsTrait
 {
     /**
-     * Get file fields for API query
-     * @param string $path file path
+     * Get file fields for API query, if file path was used as opposed to a file data array.
+     * @param array|string $path file path
      * @return array
      */
     public function getFileFields($path)
     {
+        if (is_array($path)) {
+            return $path;
+        }
+
         if (!file_exists($path)) {
             throw new \RuntimeException(sprintf('File "%s" does not exist', $path));
         }
