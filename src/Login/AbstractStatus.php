@@ -1,8 +1,8 @@
 <?php
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\QueryInterface;
-use Isign\TokenizedQueryInterface;
+use Dokobit\QueryInterface;
+use Dokobit\TokenizedQueryInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

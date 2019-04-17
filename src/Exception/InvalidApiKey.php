@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Exception;
+namespace Dokobit\Exception;
 
 /**
  * Access forbidden. Invalid API key.

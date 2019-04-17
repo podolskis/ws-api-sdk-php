@@ -1,5 +1,5 @@
 <?php
-namespace Isign;
+namespace Dokobit;
 
 /**
  * Response mapper interface for building response mappers.

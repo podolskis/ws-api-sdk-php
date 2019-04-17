@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Http;
+namespace Dokobit\Http;
 
 use GuzzleHttp;
 use GuzzleHttp\Exception\ClientException;
-use Isign\Exception;
+use Dokobit\Exception;
 
 /**
  * Adapter for GuzzleHttp client

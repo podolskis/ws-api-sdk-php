@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\Login\SmartIdStatusResult;
+use Dokobit\Login\SmartIdStatusResult;
 
 /**
  * Result object for smart ID certificate response.

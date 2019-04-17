@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
 
 class ScStatusTest extends TestCase
 {
@@ -18,7 +18,7 @@ class ScStatusTest extends TestCase
 
     public function testContainsToken()
     {
-        $this->assertInstanceOf('Isign\QueryInterface', $this->method);
+        $this->assertInstanceOf('Dokobit\QueryInterface', $this->method);
         $this->assertSame('xxx', $this->method->getToken());
     }
 
@@ -47,7 +47,7 @@ class ScStatusTest extends TestCase
     public function testCreateResult()
     {
         $method = new ScVerify('xxx', 'yyy');
-        $this->assertInstanceOf('Isign\Login\ScVerifyResult', $method->createResult());
+        $this->assertInstanceOf('Dokobit\Login\ScVerifyResult', $method->createResult());
     }
 
     public function testGetValidationConstraints()

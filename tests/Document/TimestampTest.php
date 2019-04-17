@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Isign\Tests\Document;
+namespace Dokobit\Tests\Document;
 
-use Isign\Document\Timestamp;
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
+use Dokobit\Document\Timestamp;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
 
 class TimestampTest extends TestCase
 {
@@ -59,7 +59,7 @@ class TimestampTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Document\TimestampResult', $this->query->createResult());
+        $this->assertInstanceOf('Dokobit\Document\TimestampResult', $this->query->createResult());
     }
 
     public function testHasValidationConstraints()

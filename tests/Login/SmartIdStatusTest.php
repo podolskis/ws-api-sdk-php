@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\Login\SmartIdStatus;
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
+use Dokobit\Login\SmartIdStatus;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
 
 class SmartIdStatusTest extends TestCase
 {
@@ -16,12 +16,12 @@ class SmartIdStatusTest extends TestCase
     
     public function testItExtendsAbstractStatusClass()
     {
-        $this->assertInstanceOf('Isign\Login\AbstractStatus', $this->method);
+        $this->assertInstanceOf('Dokobit\Login\AbstractStatus', $this->method);
     }
 
     public function testContainsToken()
     {
-        $this->assertInstanceOf('Isign\TokenizedQueryInterface', $this->method);
+        $this->assertInstanceOf('Dokobit\TokenizedQueryInterface', $this->method);
         $this->assertSame('xxx', $this->method->getToken());
     }
 
@@ -45,7 +45,7 @@ class SmartIdStatusTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Login\SmartIdStatusResult', $this->method->createResult());
+        $this->assertInstanceOf('Dokobit\Login\SmartIdStatusResult', $this->method->createResult());
     }
 
     public function testHasValidationConstraints()

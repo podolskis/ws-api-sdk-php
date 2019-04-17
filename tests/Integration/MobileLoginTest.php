@@ -1,14 +1,14 @@
 <?php
-namespace Isign\Tests\Integration;
+namespace Dokobit\Tests\Integration;
 
-use Isign\Login;
-use Isign\ResultInterface;
+use Dokobit\Login;
+use Dokobit\ResultInterface;
 
 class MobileLoginTest extends TestCase
 {
     public function testLogin()
     {
-        /** @var Isign\Login\MobileResult $result */
+        /** @var Dokobit\Login\MobileResult $result */
         $result = $this->client->get(
             new Login\Mobile(PHONE, CODE)
         );
@@ -31,7 +31,7 @@ class MobileLoginTest extends TestCase
      */
     public function testLoginStatusWaiting(Login\MobileResult $result)
     {
-        /** @var Isign\Login\MobileStatusResult $statusResult */
+        /** @var Dokobit\Login\MobileStatusResult $statusResult */
         $statusResult = $this->client->get(
             new Login\MobileStatus($result->getToken())
         );
@@ -48,7 +48,7 @@ class MobileLoginTest extends TestCase
     {
         sleep(TIMEOUT);
 
-        /** @var Isign\Login\MobileStatusResult $statusResult */
+        /** @var Dokobit\Login\MobileStatusResult $statusResult */
         $statusResult = $this->client->get(
             new Login\MobileStatus($result->getToken())
         );
@@ -57,7 +57,7 @@ class MobileLoginTest extends TestCase
 
     /**
      * Test parameters validation on client side
-     * @expectedException Isign\Exception\QueryValidator
+     * @expectedException Dokobit\Exception\QueryValidator
      * @expectedExceptionMessage Query parameters validation failed
      */
     public function testInvalidParamsHandling()
@@ -69,7 +69,7 @@ class MobileLoginTest extends TestCase
 
     /**
      * Test parameters validation on API by sending invalid personal code
-     * @expectedException Isign\Exception\InvalidData
+     * @expectedException Dokobit\Exception\InvalidData
      * @expectedExceptionMessage Data validation failed
      */
     public function testBadRequest()

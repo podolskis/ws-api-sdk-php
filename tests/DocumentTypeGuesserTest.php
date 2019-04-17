@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Tests;
+namespace Dokobit\Tests;
 
-use Isign\DocumentTypeGuesser;
+use Dokobit\DocumentTypeGuesser;
 
 class DocumentTypeGuesserTest extends TestCase
 {
@@ -14,7 +14,7 @@ class DocumentTypeGuesserTest extends TestCase
     }
 
     /**
-     * @expectedException Isign\Exception\NotSupportedDocumentType
+     * @expectedException Dokobit\Exception\NotSupportedDocumentType
      */
     public function testNoTypeMatch()
     {

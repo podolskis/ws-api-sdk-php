@@ -1,16 +1,16 @@
 <?php
 
-namespace Isign\Tests\Integration;
+namespace Dokobit\Tests\Integration;
 
-use Isign\Login\Sc;
-use Isign\Login\ScResult;
-use Isign\Login\ScVerify;
-use Isign\StatusResultInterface;
+use Dokobit\Login\Sc;
+use Dokobit\Login\ScResult;
+use Dokobit\Login\ScVerify;
+use Dokobit\StatusResultInterface;
 
 class ScLoginTest extends TestCase
 {
     /**
-     * @return \Isign\StatusResultInterface
+     * @return \Dokobit\StatusResultInterface
      */
     public function testLogin()
     {

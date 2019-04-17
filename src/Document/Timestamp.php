@@ -1,17 +1,17 @@
 <?php
-namespace Isign\Document;
+namespace Dokobit\Document;
 
-use Isign\DocumentTypeProvider;
-use Isign\FileFieldsTrait;
-use Isign\QueryInterface;
-use Isign\ResultInterface;
+use Dokobit\DocumentTypeProvider;
+use Dokobit\FileFieldsTrait;
+use Dokobit\QueryInterface;
+use Dokobit\ResultInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Timestamp
  * Timestamps document's signatures.
  *
- * @package Isign\Document
+ * @package Dokobit\Document
  */
 class Timestamp implements QueryInterface
 {

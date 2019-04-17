@@ -1,11 +1,11 @@
 <?php
-namespace Isign;
+namespace Dokobit;
 
 use GuzzleHttp\Subscriber\Log\LogSubscriber;
-use Isign\Exception;
-use Isign\Exception\InvalidApiKey;
-use Isign\Http\ClientInterface;
-use Isign\Http\GuzzleClientAdapter;
+use Dokobit\Exception;
+use Dokobit\Exception\InvalidApiKey;
+use Dokobit\Http\ClientInterface;
+use Dokobit\Http\GuzzleClientAdapter;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

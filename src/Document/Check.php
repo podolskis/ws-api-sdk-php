@@ -1,10 +1,10 @@
 <?php
-namespace Isign\Document;
+namespace Dokobit\Document;
 
-use Isign\DocumentTypeProvider;
-use Isign\FileFieldsTrait;
-use Isign\QueryInterface;
-use Isign\ResultInterface;
+use Dokobit\DocumentTypeProvider;
+use Dokobit\FileFieldsTrait;
+use Dokobit\QueryInterface;
+use Dokobit\ResultInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * This method returns PDF, ADoc or MDoc file with meta data.
  * Can be used to fetch information about document’s signatures.
  *
- * @package Isign\Document
+ * @package Dokobit\Document
  */
 class Check implements QueryInterface
 {

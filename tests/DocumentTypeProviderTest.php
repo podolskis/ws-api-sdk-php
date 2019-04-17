@@ -1,13 +1,13 @@
 <?php
-namespace Isign\Tests;
+namespace Dokobit\Tests;
 
-use Isign\DocumentTypeProvider;
+use Dokobit\DocumentTypeProvider;
 
 class DocumentTypeProviderTest extends TestCase
 {
     public function testGetAllDocumentTypes()
     {
-        $ref = new \ReflectionClass('Isign\DocumentTypeProvider');
+        $ref = new \ReflectionClass('Dokobit\DocumentTypeProvider');
         $this->assertEquals(count($ref->getConstants()), count(DocumentTypeProvider::getAllDocumentTypes()));
     }
 

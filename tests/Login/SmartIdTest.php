@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\Login\SmartId;
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
+use Dokobit\Login\SmartId;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
 
 class SmartIdTest extends TestCase
 {
@@ -34,7 +34,7 @@ class SmartIdTest extends TestCase
     public function testCreateResult()
     {
         $method = new SmartId('', '');
-        $this->assertInstanceOf('Isign\Login\SmartIdResult', $method->createResult());
+        $this->assertInstanceOf('Dokobit\Login\SmartIdResult', $method->createResult());
     }
 
     public function testHasValidationConstraints()

@@ -1,11 +1,11 @@
 <?php
-namespace Isign\Sign;
+namespace Dokobit\Sign;
 
-use Isign\DocumentTypeProvider;
-use Isign\FileFieldsTrait;
-use Isign\QueryInterface;
-use Isign\Validator\Constraints\Code;
-use Isign\Validator\Constraints\Phone;
+use Dokobit\DocumentTypeProvider;
+use Dokobit\FileFieldsTrait;
+use Dokobit\QueryInterface;
+use Dokobit\Validator\Constraints\Code;
+use Dokobit\Validator\Constraints\Phone;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

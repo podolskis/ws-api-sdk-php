@@ -1,11 +1,11 @@
 <?php
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\Login\SmartIdStatusResult;
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
-use Isign\Tests\Login\SmartIdStatusTest;
+use Dokobit\Login\SmartIdStatusResult;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
+use Dokobit\Tests\Login\SmartIdStatusTest;
 
 class SmartIdStatusResultTest extends TestCase
 {
@@ -18,12 +18,12 @@ class SmartIdStatusResultTest extends TestCase
 
     public function testStatusInterface()
     {
-        $this->assertInstanceOf('Isign\StatusResultInterface', $this->method);
+        $this->assertInstanceOf('Dokobit\StatusResultInterface', $this->method);
     }
     
     public function testExtendsStatusResultAbstract()
     {
-        $this->assertInstanceOf('Isign\Login\AbstractStatusResult', $this->method);
+        $this->assertInstanceOf('Dokobit\Login\AbstractStatusResult', $this->method);
     }
 
     use TestResultFieldsTrait;

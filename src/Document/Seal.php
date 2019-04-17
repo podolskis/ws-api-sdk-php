@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Document;
+namespace Dokobit\Document;
 
-use Isign\DocumentTypeProvider;
-use Isign\FileFieldsTrait;
-use Isign\QueryInterface;
+use Dokobit\DocumentTypeProvider;
+use Dokobit\FileFieldsTrait;
+use Dokobit\QueryInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

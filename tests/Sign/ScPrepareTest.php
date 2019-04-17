@@ -1,10 +1,10 @@
 <?php
 
-namespace Isign\Tests\Sign;
+namespace Dokobit\Tests\Sign;
 
-use Isign\QueryInterface;
-use Isign\Sign\ScPrepare;
-use Isign\Tests\TestCase;
+use Dokobit\QueryInterface;
+use Dokobit\Sign\ScPrepare;
+use Dokobit\Tests\TestCase;
 
 class ScPrepareTest extends TestCase
 {
@@ -93,7 +93,7 @@ class ScPrepareTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Sign\ScPrepareResult', $this->method->createResult());
+        $this->assertInstanceOf('Dokobit\Sign\ScPrepareResult', $this->method->createResult());
     }
 
     public function testHasValidationConstraints()

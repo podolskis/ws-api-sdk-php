@@ -1,14 +1,14 @@
 <?php
-namespace Isign\Tests\Integration;
+namespace Dokobit\Tests\Integration;
 
-use Isign\Login;
-use Isign\ResultInterface;
+use Dokobit\Login;
+use Dokobit\ResultInterface;
 
 class MobileCertificateTest extends TestCase
 {
     public function testCertificate()
     {
-        /** @var Isign\Login\MobileCertificateResult $result */
+        /** @var Dokobit\Login\MobileCertificateResult $result */
         $result = $this->client->get(
             new Login\MobileCertificate(PHONE, CODE)
         );
@@ -17,11 +17,11 @@ class MobileCertificateTest extends TestCase
     }
 
     /**
-     * @expectedException Isign\Exception\InvalidData
+     * @expectedException Dokobit\Exception\InvalidData
      */
     public function testCertificateInvalidRequest()
     {
-        /** @var Isign\Login\MobileCertificateResult $result */
+        /** @var Dokobit\Login\MobileCertificateResult $result */
         $result = $this->client->get(
             new Login\MobileCertificate('+37060000000', CODE)
         );

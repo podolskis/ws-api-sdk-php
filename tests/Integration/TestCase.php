@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Tests\Integration;
+namespace Dokobit\Tests\Integration;
 
-use Isign\Client;
+use Dokobit\Client;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 

@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\QueryInterface;
+use Dokobit\QueryInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Sc implements QueryInterface
