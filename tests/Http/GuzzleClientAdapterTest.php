@@ -19,7 +19,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             ->method('createRequest')
             ->with(
                 $this->equalTo('POST'),
-                $this->equalTo('https://developers.isign.io'),
+                $this->equalTo('https://developers.dokobit.com'),
                 []
             )
             ->willReturn(
@@ -51,7 +51,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             ->method('createRequest')
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
@@ -90,7 +90,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             ->method('createRequest')
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
@@ -125,7 +125,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
@@ -160,7 +160,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
@@ -195,7 +195,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
@@ -230,7 +230,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
@@ -250,6 +250,6 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 }

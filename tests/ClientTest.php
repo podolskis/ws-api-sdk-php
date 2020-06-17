@@ -87,8 +87,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame(false, $client->isSandbox());
-        $this->assertSame('https://api2.isign.io', $client->getUrl());
-        $this->assertSame('https://developers.isign.io', $client->getSandboxUrl());
+        $this->assertSame('https://ws.dokobit.com', $client->getUrl());
+        $this->assertSame('https://developers.dokobit.com', $client->getSandboxUrl());
     }
 
     public function testCustomClientConfiguration()
@@ -131,24 +131,24 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ['apiKey' => 'xxxxxx']
         );
         $this->assertEquals(
-            'https://api2.isign.io/login.json',
-            $client->getFullMethodUrl('login')
+            'https://ws.dokobit.com/mobile/login.json',
+            $client->getFullMethodUrl('mobile/login')
         );
     }
 
     public function testGetFullMethodUrlForSandbox()
     {
         $this->assertEquals(
-            'https://developers.isign.io/login.json',
-            $this->client->getFullMethodUrl('login')
+            'https://developers.dokobit.com/mobile/login.json',
+            $this->client->getFullMethodUrl('mobile/login')
         );
     }
 
     public function testGetFullMethodWithToken()
     {
         $this->assertEquals(
-            'https://developers.isign.io/login/status/secrectToken.json',
-            $this->client->getFullMethodUrl('login/status', 'secrectToken')
+            'https://developers.dokobit.com/mobile/login/status/secrectToken.json',
+            $this->client->getFullMethodUrl('mobile/login/status', 'secrectToken')
         );
     }
 
