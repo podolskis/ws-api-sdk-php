@@ -1,13 +1,13 @@
 {
-    "name": "dokobit/dokobit-sdk-php",
-    "description": "Client for dokobit.com e-signature API",
+    "name": "dokobit/ws-api-sdk-php",
+    "description": "Client for Dokobit.com e-signature WS API",
 
     "type": "library",
     "license": "MIT",
-    "homepage": "https://www.dokobit.com",
+    "homepage": "https://www.dokobit.com/solutions",
 
     "require": {
-        "php"                       : ">=7.0.0",
+        "php"                       : ">=7.1.0",
         "guzzlehttp/guzzle"         : "~5.3",
         "guzzlehttp/log-subscriber" : "~1.0",
         "symfony/validator"         : "~3.2|~4.0"
