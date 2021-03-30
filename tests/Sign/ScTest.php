@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Sign;
+namespace Dokobit\Tests\Sign;
 
-use Isign\QueryInterface;
-use Isign\Sign\Sc;
-use Isign\Tests\TestCase;
+use Dokobit\QueryInterface;
+use Dokobit\Sign\Sc;
+use Dokobit\Tests\TestCase;
 
 class ScTest extends TestCase
 {
@@ -47,6 +47,6 @@ class ScTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Sign\ScResult', $this->query->createResult());
+        $this->assertInstanceOf('Dokobit\Sign\ScResult', $this->query->createResult());
     }
 }

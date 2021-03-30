@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\Login\Sc;
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
+use Dokobit\Login\Sc;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
 
 class ScTest extends TestCase
 {
@@ -45,7 +45,7 @@ class ScTest extends TestCase
     public function testCreateResult()
     {
         $method = new Sc('', '');
-        $this->assertInstanceOf('Isign\Login\ScResult', $method->createResult());
+        $this->assertInstanceOf('Dokobit\Login\ScResult', $method->createResult());
     }
 
     private function getCertificate()

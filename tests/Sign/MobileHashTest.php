@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Sign;
+namespace Dokobit\Tests\Sign;
 
-use Isign\QueryInterface;
-use Isign\Sign\MobileHash;
-use Isign\Tests\TestCase;
+use Dokobit\QueryInterface;
+use Dokobit\Sign\MobileHash;
+use Dokobit\Tests\TestCase;
 
 class MobileHashTest extends TestCase
 {
@@ -47,7 +47,7 @@ class MobileHashTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Sign\MobileHashResult', $this->method->createResult());
+        $this->assertInstanceOf('Dokobit\Sign\MobileHashResult', $this->method->createResult());
     }
 
     public function testHasValidationConstraints()

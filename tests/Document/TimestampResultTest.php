@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Isign\Tests\Document;
+namespace Dokobit\Tests\Document;
 
 
-use Isign\Document\TimestampResult;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\Document\TimestampResult;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class TimestampResultTest extends TestCase
 {

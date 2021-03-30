@@ -17,8 +17,8 @@
     
     <php>
         <!-- For integration tests -->
-        <const name="SANDBOX_API_KEY" value="test_labadiena"/>
-        <const name="SANDBOX_URL" value="https://developers.isign.io"/>
+        <const name="SANDBOX_API_KEY" value="test_TPi1llQiif209gKuTAp6sG4oelGTKSsY"/>
+        <const name="SANDBOX_URL" value="https://developers.dokobit.com"/>
         <const name="TIMEOUT" value="20"/>
         <const name="PHONE" value="+37060000007"/>
         <const name="CODE" value="51001091072"/>

@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\QueryInterface;
-use Isign\Validator\Constraints\Code;
-use Isign\Validator\Constraints\Phone;
+use Dokobit\QueryInterface;
+use Dokobit\Validator\Constraints\Code;
+use Dokobit\Validator\Constraints\Phone;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

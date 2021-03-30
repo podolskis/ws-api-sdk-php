@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Isign\Tests\Document;
+namespace Dokobit\Tests\Document;
 
-use Isign\Document\Check;
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
+use Dokobit\Document\Check;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
 
 class CheckTest extends TestCase
 {
@@ -59,7 +59,7 @@ class CheckTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Document\CheckResult', $this->query->createResult());
+        $this->assertInstanceOf('Dokobit\Document\CheckResult', $this->query->createResult());
     }
 
     public function testHasValidationConstraints()

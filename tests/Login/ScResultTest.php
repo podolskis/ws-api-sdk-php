@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class ScResultTest extends TestCase
 {

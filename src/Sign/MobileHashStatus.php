@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Sign;
+namespace Dokobit\Sign;
 
-use Isign\Login\AbstractStatus;
+use Dokobit\Login\AbstractStatus;
 
 /**
  * Document sign status for mobile ID.

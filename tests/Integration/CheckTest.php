@@ -1,14 +1,14 @@
 <?php
-namespace Isign\Tests\Integration;
+namespace Dokobit\Tests\Integration;
 
-use Isign\DocumentTypeGuesser;
-use Isign\Document\Check;
-use Isign\ResultInterface;
+use Dokobit\DocumentTypeGuesser;
+use Dokobit\Document\Check;
+use Dokobit\ResultInterface;
 
 class CheckTest extends TestCase
 {
     /**
-     * @expectedException Isign\Exception\QueryValidator
+     * @expectedException Dokobit\Exception\QueryValidator
      */
     public function testRequiredParams()
     {
@@ -25,11 +25,11 @@ class CheckTest extends TestCase
     public function testRequiredFileParameters()
     {
         try {
-            /** @var Isign\Document\CheckResult $statusResult */
+            /** @var Dokobit\Document\CheckResult $statusResult */
             $statusResult = $this->client->get(
                 new Check('pdf', null)
             );
-        } catch (\Isign\Exception\QueryValidator $e) {
+        } catch (\Dokobit\Exception\QueryValidator $e) {
             $this->assertCount(3, $e->getViolations());
             return;
         }
@@ -44,7 +44,7 @@ class CheckTest extends TestCase
         $guesser = new DocumentTypeGuesser();
         $type = $guesser->guess($file);
 
-        /** @var Isign\Document\CheckResult $statusResult */
+        /** @var Dokobit\Document\CheckResult $statusResult */
         $statusResult = $this->client->get(
             new Check($type, $file)
         );

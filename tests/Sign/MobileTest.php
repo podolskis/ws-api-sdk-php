@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Sign;
+namespace Dokobit\Tests\Sign;
 
-use Isign\QueryInterface;
-use Isign\Sign\Mobile;
-use Isign\Tests\TestCase;
+use Dokobit\QueryInterface;
+use Dokobit\Sign\Mobile;
+use Dokobit\Tests\TestCase;
 
 class MobileTest extends TestCase
 {
@@ -93,7 +93,7 @@ class MobileTest extends TestCase
     public function testCreateResult()
     {
         $method = new Mobile('', '', '', []);
-        $this->assertInstanceOf('Isign\Sign\MobileResult', $method->createResult());
+        $this->assertInstanceOf('Dokobit\Sign\MobileResult', $method->createResult());
     }
 
     public function testHasValidationConstraints()

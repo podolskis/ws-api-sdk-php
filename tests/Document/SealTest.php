@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Document;
+namespace Dokobit\Tests\Document;
 
-use Isign\QueryInterface;
-use Isign\Document\Seal;
-use Isign\Tests\TestCase;
+use Dokobit\QueryInterface;
+use Dokobit\Document\Seal;
+use Dokobit\Tests\TestCase;
 
 class SealTest extends TestCase
 {
@@ -85,7 +85,7 @@ class SealTest extends TestCase
     public function testCreateResult()
     {
         $method = new Seal('', [], false);
-        $this->assertInstanceOf('Isign\Document\SealResult', $method->createResult());
+        $this->assertInstanceOf('Dokobit\Document\SealResult', $method->createResult());
     }
 
     public function testHasValidationConstraints()

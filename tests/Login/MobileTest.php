@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\Login\Mobile;
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
+use Dokobit\Login\Mobile;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
 
 class MobileTest extends TestCase
 {
@@ -51,7 +51,7 @@ class MobileTest extends TestCase
     public function testCreateResult()
     {
         $method = new Mobile('', '');
-        $this->assertInstanceOf('Isign\Login\MobileResult', $method->createResult());
+        $this->assertInstanceOf('Dokobit\Login\MobileResult', $method->createResult());
     }
 
     public function testHasValidationConstraints()

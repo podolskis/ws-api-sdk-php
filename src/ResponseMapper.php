@@ -1,5 +1,5 @@
 <?php
-namespace Isign;
+namespace Dokobit;
 
 /**
  * Mapping response array to result objects

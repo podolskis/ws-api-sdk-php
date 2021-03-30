@@ -1,5 +1,5 @@
 <?php
-namespace Isign;
+namespace Dokobit;
 
 trait FileFieldsTrait
 {

@@ -1,14 +1,14 @@
 <?php
-namespace Isign\Tests\Integration;
+namespace Dokobit\Tests\Integration;
 
-use Isign\Document\Archive;
-use Isign\ResultInterface;
-use Isign\StatusResultInterface;
+use Dokobit\Document\Archive;
+use Dokobit\ResultInterface;
+use Dokobit\StatusResultInterface;
 
 class ArchiveTest extends TestCase
 {
     /**
-     * @expectedException Isign\Exception\QueryValidator
+     * @expectedException Dokobit\Exception\QueryValidator
      */
     public function testRequiredSignatureId()
     {
@@ -35,7 +35,7 @@ class ArchiveTest extends TestCase
                     ['id' => 'Signature1']
                 ]
             ));
-        } catch (\Isign\Exception\QueryValidator $e) {
+        } catch (\Dokobit\Exception\QueryValidator $e) {
             $this->assertCount(3, $e->getViolations());
             return;
         }

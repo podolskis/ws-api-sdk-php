@@ -1,17 +1,17 @@
 <?php
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\Client;
+use Dokobit\Client;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var Isign\QueryInterface */
+    /** @var Dokobit\QueryInterface */
     private $methodStub;
 
-    /** @var Isign\Http\ClientInterface */
+    /** @var Dokobit\Http\ClientInterface */
     private $clientStub;
 
-    /** @var Isign\ResponseMapperInterface */
+    /** @var Dokobit\ResponseMapperInterface */
     private $responseMapperStub;
 
     /** @var Symfony\Component\Validator\Validator */
@@ -22,7 +22,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->methodStub = $this->getMockBuilder('Isign\QueryInterface')
+        $this->methodStub = $this->getMockBuilder('Dokobit\QueryInterface')
             ->setMethods(['getAction', 'getMethod', 'getFields', 'createResult', 'getValidationConstraints'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -35,12 +35,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         ;
 
 
-        $this->clientStub = $this->getMockBuilder('Isign\Http\ClientInterface')
+        $this->clientStub = $this->getMockBuilder('Dokobit\Http\ClientInterface')
             ->setMethods(['sendRequest'])
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->responseMapperStub = $this->getMockBuilder('Isign\ResponseMapperInterface')
+        $this->responseMapperStub = $this->getMockBuilder('Dokobit\ResponseMapperInterface')
             ->setMethods(['map'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -61,7 +61,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testFactoryCreate()
     {
         $client = Client::create(['sandbox' => true, 'apiKey' => 'xxx']);
-        $this->assertInstanceOf('Isign\Client', $client);
+        $this->assertInstanceOf('Dokobit\Client', $client);
         $this->assertTrue($client->isSandbox());
     }
 
@@ -74,7 +74,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ['sandbox' => true, 'apiKey' => 'xxx'],
             $logger
         );
-        $this->assertInstanceOf('Isign\Client', $client);
+        $this->assertInstanceOf('Dokobit\Client', $client);
     }
 
     public function testDefaultClientConfiguration()
@@ -87,8 +87,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame(false, $client->isSandbox());
-        $this->assertSame('https://api2.isign.io', $client->getUrl());
-        $this->assertSame('https://developers.isign.io', $client->getSandboxUrl());
+        $this->assertSame('https://ws.dokobit.com', $client->getUrl());
+        $this->assertSame('https://developers.dokobit.com', $client->getSandboxUrl());
     }
 
     public function testCustomClientConfiguration()
@@ -111,7 +111,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Isign\Exception\InvalidApiKey
+     * @expectedException Dokobit\Exception\InvalidApiKey
      */
     public function testApiKeyRequired()
     {
@@ -131,30 +131,30 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ['apiKey' => 'xxxxxx']
         );
         $this->assertEquals(
-            'https://api2.isign.io/login.json',
-            $client->getFullMethodUrl('login')
+            'https://ws.dokobit.com/mobile/login.json',
+            $client->getFullMethodUrl('mobile/login')
         );
     }
 
     public function testGetFullMethodUrlForSandbox()
     {
         $this->assertEquals(
-            'https://developers.isign.io/login.json',
-            $this->client->getFullMethodUrl('login')
+            'https://developers.dokobit.com/mobile/login.json',
+            $this->client->getFullMethodUrl('mobile/login')
         );
     }
 
     public function testGetFullMethodWithToken()
     {
         $this->assertEquals(
-            'https://developers.isign.io/login/status/secrectToken.json',
-            $this->client->getFullMethodUrl('login/status', 'secrectToken')
+            'https://developers.dokobit.com/mobile/login/status/secrectToken.json',
+            $this->client->getFullMethodUrl('mobile/login/status', 'secrectToken')
         );
     }
 
     public function testGetTokenFromDefaultQuery()
     {
-        $query = $this->getMockBuilder('Isign\QueryInterface')
+        $query = $this->getMockBuilder('Dokobit\QueryInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -163,7 +163,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function testGetTokenFromTokenizedQuery()
     {
-        $query = $this->getMockBuilder('Isign\TokenizedQueryInterface')
+        $query = $this->getMockBuilder('Dokobit\TokenizedQueryInterface')
             ->setMethods(['getToken', 'getFields', 'getAction', 'createResult', 'getValidationConstraints', 'getMethod'])
             ->disableOriginalConstructor()
             ->getMock()
@@ -182,7 +182,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('createResult')
             ->willReturn(
-                $this->getMockBuilder('Isign\ResultInterface')
+                $this->getMockBuilder('Dokobit\ResultInterface')
                     ->disableOriginalConstructor()
                     ->getMock()
             )
@@ -221,7 +221,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Isign\Exception\QueryValidator
+     * @expectedException Dokobit\Exception\QueryValidator
      * @expectedExceptionMessage Query parameters validation failed
      */
     public function testGetValidationFailed()

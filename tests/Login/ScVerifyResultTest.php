@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class ScVerifyResultTest extends TestCase
 {
@@ -18,7 +18,7 @@ class ScVerifyResultTest extends TestCase
 
     public function testStatusInterface()
     {
-        $this->assertInstanceOf('Isign\StatusResultInterface', $this->method);
+        $this->assertInstanceOf('Dokobit\StatusResultInterface', $this->method);
     }
 
     use TestResultFieldsTrait;

@@ -1,10 +1,10 @@
 <?php
-namespace Isign\Tests\Integration;
+namespace Dokobit\Tests\Integration;
 
 
-use Isign\Document\Timestamp;
-use Isign\Document\TimestampResult;
-use Isign\ResultInterface;
+use Dokobit\Document\Timestamp;
+use Dokobit\Document\TimestampResult;
+use Dokobit\ResultInterface;
 
 class TimestampTest extends TestCase
 {
@@ -19,7 +19,7 @@ class TimestampTest extends TestCase
                 'adoc',
                 ''
             ));
-        } catch (\Isign\Exception\QueryValidator $e) {
+        } catch (\Dokobit\Exception\QueryValidator $e) {
             $this->assertCount(3, $e->getViolations());
             return;
         }

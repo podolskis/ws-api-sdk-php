@@ -1,14 +1,14 @@
 <?php
-namespace Isign\Tests\Integration;
+namespace Dokobit\Tests\Integration;
 
-use Isign\ResultInterface;
-use Isign\Sign;
+use Dokobit\ResultInterface;
+use Dokobit\Sign;
 
 class MobileSignTest extends TestCase
 {
     public function testSign()
     {
-        /** @var Isign\Sign\MobileResult $result */
+        /** @var Dokobit\Sign\MobileResult $result */
         $result = $this->client->get(new Sign\Mobile(
             'pdf',
             PHONE,
@@ -47,7 +47,7 @@ class MobileSignTest extends TestCase
     {
         sleep(TIMEOUT);
 
-        /** @var Isign\Login\MobileStatusResult $result */
+        /** @var Dokobit\Login\MobileStatusResult $result */
         $statusResult = $this->client->get(
             new Sign\MobileStatus($result->getToken())
         );
@@ -58,12 +58,12 @@ class MobileSignTest extends TestCase
 
     /**
      * Test parameters validation on client side
-     * @expectedException Isign\Exception\QueryValidator
+     * @expectedException Dokobit\Exception\QueryValidator
      * @expectedExceptionMessage Query parameters validation failed
      */
     public function testInvalidParamsHandling()
     {
-        /** @var Isign\Sign\MobileResult $result */
+        /** @var Dokobit\Sign\MobileResult $result */
         $result = $this->client->get(new Sign\Mobile(
             'pdf',
             '37260000007',
@@ -74,12 +74,12 @@ class MobileSignTest extends TestCase
 
     /**
      * Test parameters validation on API by sending invalid personal code
-     * @expectedException Isign\Exception\InvalidData
+     * @expectedException Dokobit\Exception\InvalidData
      * @expectedExceptionMessage Data validation failed
      */
     public function testBadRequest()
     {
-        /** @var Isign\Sign\MobileResult $result */
+        /** @var Dokobit\Sign\MobileResult $result */
         $result = $this->client->get(new Sign\Mobile(
             'pdf',
             PHONE,

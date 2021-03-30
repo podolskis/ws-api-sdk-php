@@ -1,8 +1,8 @@
 <?php
-namespace Isign\Tests\Http;
+namespace Dokobit\Tests\Http;
 
 use GuzzleHttp\Exception\ClientException;
-use Isign\Http\GuzzleClientAdapter;
+use Dokobit\Http\GuzzleClientAdapter;
 
 class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,7 +19,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             ->method('createRequest')
             ->with(
                 $this->equalTo('POST'),
-                $this->equalTo('https://developers.isign.io'),
+                $this->equalTo('https://developers.dokobit.com'),
                 []
             )
             ->willReturn(
@@ -51,11 +51,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             ->method('createRequest')
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Exception\InvalidData
+     * @expectedException Dokobit\Exception\InvalidData
      * @expectedExceptionCode 400
      */
     public function testDataValidationError400()
@@ -90,11 +90,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             ->method('createRequest')
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Exception\InvalidApiKey
+     * @expectedException Dokobit\Exception\InvalidApiKey
      * @expectedExceptionCode 403
      */
     public function testInvalidApiKeyError403()
@@ -125,11 +125,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Exception\ServerError
+     * @expectedException Dokobit\Exception\ServerError
      * @expectedExceptionCode 500
      */
     public function testServerError500()
@@ -160,11 +160,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Exception\Timeout
+     * @expectedException Dokobit\Exception\Timeout
      * @expectedExceptionCode 504
      */
     public function testTimeout504()
@@ -195,11 +195,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Exception\UnexpectedResponse
+     * @expectedException Dokobit\Exception\UnexpectedResponse
      * @expectedExceptionCode 101
      */
     public function testUnexpectedResponseStatusCode()
@@ -230,11 +230,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Exception\UnexpectedError
+     * @expectedException Dokobit\Exception\UnexpectedError
      */
     public function testUnexpectedError()
     {
@@ -250,6 +250,6 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://developers.isign.io');
+        $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 }

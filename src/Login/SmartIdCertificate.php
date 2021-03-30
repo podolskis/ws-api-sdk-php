@@ -1,8 +1,8 @@
 <?php
 
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\ResultInterface;
+use Dokobit\ResultInterface;
 
 class SmartIdCertificate extends AbstractSmartIdQuery
 {

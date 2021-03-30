@@ -1,14 +1,14 @@
 <?php
-namespace Isign\Tests\Integration;
+namespace Dokobit\Tests\Integration;
 
-use Isign\ResultInterface;
-use Isign\Document;
+use Dokobit\ResultInterface;
+use Dokobit\Document;
 
 class SealTest extends TestCase
 {
     public function testSign()
     {
-        /** @var Isign\Document\SealResult $result */
+        /** @var Dokobit\Document\SealResult $result */
         $result = $this->client->get(new Document\Seal(
             'pdf',
             $this->getDocumentParams(),

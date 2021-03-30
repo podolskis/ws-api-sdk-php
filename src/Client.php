@@ -1,31 +1,31 @@
 <?php
-namespace Isign;
+namespace Dokobit;
 
 use GuzzleHttp\Subscriber\Log\LogSubscriber;
-use Isign\Exception;
-use Isign\Exception\InvalidApiKey;
-use Isign\Http\ClientInterface;
-use Isign\Http\GuzzleClientAdapter;
+use Dokobit\Exception;
+use Dokobit\Exception\InvalidApiKey;
+use Dokobit\Http\ClientInterface;
+use Dokobit\Http\GuzzleClientAdapter;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
- * ISIGN.io API client
+ * Dokobit.com WS API client
  */
 class Client
 {
     /** @var boolean use sandbox */
     private $sandbox = false;
 
-    /** @var string API access key, given by ISIGN.io administrators */
+    /** @var string API access key, given by Dokobit.com developer support */
     private $apiKey = null;
 
     /** @var string production API url */
-    private $url = 'https://api2.isign.io';
+    private $url = 'https://ws.dokobit.com';
 
     /** @var string sandbox mode API url. Used if $sandbox is true */
-    private $sandboxUrl = 'https://developers.isign.io';
+    private $sandboxUrl = 'https://developers.dokobit.com';
 
     /** @var ClientInterface HTTP client */
     private $client;
@@ -42,8 +42,8 @@ class Client
      * @param array $options Available properties: [
      *     'apiKey' => 'xxxxxx',
      *     'sandbox' => true,
-     *     'url' => 'https://api2.isign.io',
-     *     'sandboxUrl' => 'https://developers.isign.io',
+     *     'url' => 'https://ws.dokobit.com',
+     *     'sandboxUrl' => 'https://developers.dokobit.com',
      * ]
      * @param LoggerInterface|callable|resource|null $log Logger used to log
      *     messages. Pass a LoggerInterface to use a PSR-3 logger. Pass a

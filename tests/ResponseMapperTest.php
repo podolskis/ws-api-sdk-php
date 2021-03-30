@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\ResponseMapper;
+use Dokobit\ResponseMapper;
 
 class ResponseMapperTest extends \PHPUnit_Framework_TestCase
 {
@@ -10,7 +10,7 @@ class ResponseMapperTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->resultMock = $this
-            ->getMockBuilder('Isign\ResultInterface')
+            ->getMockBuilder('Dokobit\ResultInterface')
             ->setMethods(['getFields', 'setFieldName1', 'setField2', 'setField1'])
             ->disableOriginalConstructor()
             ->getMock()
@@ -42,7 +42,7 @@ class ResponseMapperTest extends \PHPUnit_Framework_TestCase
             ['field_name_1' => 'value1', 'field2' => 'value2'],
             $this->resultMock
         );
-        $this->assertInstanceOf('Isign\ResultInterface', $result);
+        $this->assertInstanceOf('Dokobit\ResultInterface', $result);
     }
 
     public function testDoNotMapFieldWhichIsNotPresentInResponse()
