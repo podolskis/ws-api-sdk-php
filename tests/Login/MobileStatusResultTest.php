@@ -1,10 +1,10 @@
 <?php
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\Login\MobileStatusResult;
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\Login\MobileStatusResult;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class MobileStatusResultTest extends TestCase
 {
@@ -17,12 +17,12 @@ class MobileStatusResultTest extends TestCase
     
     public function testItExtendsAbstractStatusClass()
     {
-        $this->assertInstanceOf('Isign\Login\AbstractStatusResult', $this->method);
+        $this->assertInstanceOf('Dokobit\Login\AbstractStatusResult', $this->method);
     }
 
     public function testStatusInterface()
     {
-        $this->assertInstanceOf('Isign\StatusResultInterface', $this->method);
+        $this->assertInstanceOf('Dokobit\StatusResultInterface', $this->method);
     }
 
     use TestResultFieldsTrait;

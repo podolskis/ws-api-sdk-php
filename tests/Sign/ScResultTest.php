@@ -1,9 +1,9 @@
 <?php
 namespace Sign;
 
-use Isign\Sign\ScResult;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\Sign\ScResult;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class ScResultTest extends TestCase
 {

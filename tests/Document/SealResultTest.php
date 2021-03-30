@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Sign;
+namespace Dokobit\Tests\Sign;
 
-use Isign\Document\SealResult;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\Document\SealResult;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class SealResultTest extends TestCase
 {

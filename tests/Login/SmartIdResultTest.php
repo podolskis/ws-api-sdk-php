@@ -1,10 +1,10 @@
 <?php
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\Login\SmartIdResult;
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\Login\SmartIdResult;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class SmartIdResultTest extends TestCase
 {

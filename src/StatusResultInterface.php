@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Isign;
+namespace Dokobit;
 
 interface StatusResultInterface extends ResultInterface
 {

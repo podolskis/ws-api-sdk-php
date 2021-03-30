@@ -1,11 +1,11 @@
 <?php
 
-namespace Isign\Sign;
+namespace Dokobit\Sign;
 
-use Isign\DocumentTypeProvider;
-use Isign\FileFieldsTrait;
-use Isign\QueryInterface;
-use Isign\ResultInterface;
+use Dokobit\DocumentTypeProvider;
+use Dokobit\FileFieldsTrait;
+use Dokobit\QueryInterface;
+use Dokobit\ResultInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class ScPrepare implements QueryInterface

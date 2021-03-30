@@ -1,15 +1,15 @@
 <?php
-namespace Isign\Tests\Integration;
+namespace Dokobit\Tests\Integration;
 
-use Isign\ResultInterface;
-use Isign\Sign\Sc;
-use Isign\Sign\ScPrepare;
-use Isign\Sign\ScPrepareResult;
+use Dokobit\ResultInterface;
+use Dokobit\Sign\Sc;
+use Dokobit\Sign\ScPrepare;
+use Dokobit\Sign\ScPrepareResult;
 
 class ScSignTest extends TestCase
 {
     /**
-     * @expectedException Isign\Exception\QueryValidator
+     * @expectedException Dokobit\Exception\QueryValidator
      */
     public function testRequiredParams()
     {
@@ -58,14 +58,14 @@ class ScSignTest extends TestCase
 
     /**
      * Test parameters validation on API by sending invalid personal code
-     * @expectedException Isign\Exception\InvalidData
+     * @expectedException Dokobit\Exception\InvalidData
      * @expectedExceptionMessage Data validation failed
      */
     public function testBadRequest()
     {
         $documentParams = $this->getDocumentParams();
         unset($documentParams['contact']);
-        /** @var Isign\Sign\MobileResult $result */
+        /** @var Dokobit\Sign\MobileResult $result */
         $result = $this->client->get(new ScPrepare(
             base64_encode(CERTIFICATE_SIGN),
             'pdf',

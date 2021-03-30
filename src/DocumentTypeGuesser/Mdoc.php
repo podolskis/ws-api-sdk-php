@@ -1,5 +1,5 @@
 <?php
-namespace Isign\DocumentTypeGuesser;
+namespace Dokobit\DocumentTypeGuesser;
 
 class Mdoc implements DocumentTypeGuesserInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Isign;
+namespace Dokobit;
 
 abstract class DocumentTypeProvider
 {

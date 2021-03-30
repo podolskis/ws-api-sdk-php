@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\Login\SmartIdCertificateResult;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\Login\SmartIdCertificateResult;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class SmartIdCertificateResultTest extends TestCase
 {
@@ -16,12 +16,12 @@ class SmartIdCertificateResultTest extends TestCase
 
     public function testStatusInterface()
     {
-        $this->assertInstanceOf('Isign\StatusResultInterface', $this->method);
+        $this->assertInstanceOf('Dokobit\StatusResultInterface', $this->method);
     }
     
     public function testExtendsStatusResult()
     {
-        $this->assertInstanceOf('Isign\Login\SmartIdStatusResult', $this->method);
+        $this->assertInstanceOf('Dokobit\Login\SmartIdStatusResult', $this->method);
     }
 
     use TestResultFieldsTrait;

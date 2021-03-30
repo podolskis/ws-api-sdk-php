@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Tests;
+namespace Dokobit\Tests;
 
 trait TestResultFieldsTrait
 {

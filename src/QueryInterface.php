@@ -1,5 +1,5 @@
 <?php
-namespace Isign;
+namespace Dokobit;
 
 /**
  * Query interface for building queries for API.

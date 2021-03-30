@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\StatusResultInterface;
+use Dokobit\StatusResultInterface;
 
 class ScVerifyResult implements StatusResultInterface
 {

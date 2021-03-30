@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Login;
+namespace Dokobit\Login;
 
 /**
  * Login using SmartId.

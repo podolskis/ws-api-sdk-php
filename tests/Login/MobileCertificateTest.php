@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Login;
+namespace Dokobit\Tests\Login;
 
-use Isign\Login\MobileCertificate;
-use Isign\QueryInterface;
-use Isign\Tests\TestCase;
+use Dokobit\Login\MobileCertificate;
+use Dokobit\QueryInterface;
+use Dokobit\Tests\TestCase;
 
 class MobileCertificateTest extends TestCase
 {
@@ -46,6 +46,6 @@ class MobileCertificateTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Login\MobileCertificateResult', $this->query->createResult());
+        $this->assertInstanceOf('Dokobit\Login\MobileCertificateResult', $this->query->createResult());
     }
 }

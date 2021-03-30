@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Sign;
+namespace Dokobit\Sign;
 
 /**
  * Result object for mobile ID hash response.

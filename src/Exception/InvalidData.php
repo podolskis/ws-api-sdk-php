@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Exception;
+namespace Dokobit\Exception;
 
 /**
  * Data validation failed

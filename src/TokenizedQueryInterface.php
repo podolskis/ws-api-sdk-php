@@ -1,5 +1,5 @@
 <?php
-namespace Isign;
+namespace Dokobit;
 
 /**
  * Interface defines queries using token as resource identificator.

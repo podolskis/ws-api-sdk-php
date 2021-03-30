@@ -1,10 +1,10 @@
 <?php
-namespace Isign\Tests\Sign;
+namespace Dokobit\Tests\Sign;
 
-use Isign\QueryInterface;
-use Isign\Sign\MobileStatusResult;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\QueryInterface;
+use Dokobit\Sign\MobileStatusResult;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class MobileStatusResultTest extends TestCase
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Isign;
+namespace Dokobit;
 
 /**
  * Result interface for building result objects.

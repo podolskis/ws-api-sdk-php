@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\ResultInterface;
+use Dokobit\ResultInterface;
 
 /**
  * Result object for mobile ID login response.

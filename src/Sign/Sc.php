@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Sign;
+namespace Dokobit\Sign;
 
-use Isign\QueryInterface;
+use Dokobit\QueryInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

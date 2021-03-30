@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Tests\Sign;
+namespace Dokobit\Tests\Sign;
 
-use Isign\QueryInterface;
-use Isign\Sign\MobileStatus;
-use Isign\Tests\TestCase;
+use Dokobit\QueryInterface;
+use Dokobit\Sign\MobileStatus;
+use Dokobit\Tests\TestCase;
 
 class MobileStatusTest extends TestCase
 {
@@ -16,13 +16,13 @@ class MobileStatusTest extends TestCase
 
     public function testContainsToken()
     {
-        $this->assertInstanceOf('Isign\TokenizedQueryInterface', $this->method);
+        $this->assertInstanceOf('Dokobit\TokenizedQueryInterface', $this->method);
         $this->assertSame('xxx', $this->method->getToken());
     }
     
     public function testItExtendsAbstractStatusClass()
     {
-        $this->assertInstanceOf('Isign\Login\AbstractStatus', $this->method);
+        $this->assertInstanceOf('Dokobit\Login\AbstractStatus', $this->method);
     }
 
     public function testGetFields()
@@ -45,7 +45,7 @@ class MobileStatusTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Sign\MobileStatusResult', $this->method->createResult());
+        $this->assertInstanceOf('Dokobit\Sign\MobileStatusResult', $this->method->createResult());
     }
 
     public function testHasValidationConstraints()

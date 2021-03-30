@@ -1,10 +1,10 @@
 <?php
-namespace Isign\Document;
+namespace Dokobit\Document;
 
-use Isign\DocumentTypeProvider;
-use Isign\FileFieldsTrait;
-use Isign\QueryInterface;
-use Isign\ResultInterface;
+use Dokobit\DocumentTypeProvider;
+use Dokobit\FileFieldsTrait;
+use Dokobit\QueryInterface;
+use Dokobit\ResultInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Thus, archiving function is very important for all real-life scenarios
  * where signature’s meaning must be persisted through longer periods.
  *
- * @package Isign\Document
+ * @package Dokobit\Document
  */
 class Archive implements QueryInterface
 {

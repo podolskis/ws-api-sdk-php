@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Login;
+namespace Dokobit\Login;
 
-use Isign\ResultInterface;
+use Dokobit\ResultInterface;
 
 /**
  * Result object for Smart ID login response.

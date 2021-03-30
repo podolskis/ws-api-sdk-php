@@ -1,10 +1,10 @@
 <?php
-namespace Isign\Tests\Sign;
+namespace Dokobit\Tests\Sign;
 
-use Isign\QueryInterface;
-use Isign\Sign\MobileHashResult;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\QueryInterface;
+use Dokobit\Sign\MobileHashResult;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class MobileHashResultTest extends TestCase
 {
@@ -17,7 +17,7 @@ class MobileHashResultTest extends TestCase
     
     public function testItExtendsMobileResult()
     {
-        $this->assertInstanceOf('Isign\Sign\MobileResult', $this->method);
+        $this->assertInstanceOf('Dokobit\Sign\MobileResult', $this->method);
     }
 
     use TestResultFieldsTrait;

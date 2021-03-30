@@ -1,9 +1,9 @@
 <?php
 
-namespace Isign;
+namespace Dokobit;
 
-use Isign\DocumentTypeGuesser;
-use Isign\Exception\NotSupportedDocumentType;
+use Dokobit\DocumentTypeGuesser;
+use Dokobit\Exception\NotSupportedDocumentType;
 
 /**
  * Guesses document type

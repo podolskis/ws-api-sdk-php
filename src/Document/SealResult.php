@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Document;
+namespace Dokobit\Document;
 
-use Isign\ResultInterface;
+use Dokobit\ResultInterface;
 
 class SealResult implements ResultInterface
 {

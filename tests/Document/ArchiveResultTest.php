@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Isign\Tests\Document;
+namespace Dokobit\Tests\Document;
 
-use Isign\Document\ArchiveResult;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\Document\ArchiveResult;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class ArchiveResultTest extends TestCase
 {

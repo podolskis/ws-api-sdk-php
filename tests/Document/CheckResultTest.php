@@ -3,9 +3,9 @@
 
 namespace Document;
 
-use Isign\Document\CheckResult;
-use Isign\Tests\TestCase;
-use Isign\Tests\TestResultFieldsTrait;
+use Dokobit\Document\CheckResult;
+use Dokobit\Tests\TestCase;
+use Dokobit\Tests\TestResultFieldsTrait;
 
 class CheckResultTest extends TestCase
 {

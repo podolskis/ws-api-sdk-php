@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Validator\Constraints;
+namespace Dokobit\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraints\RegexValidator;
 
