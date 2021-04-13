@@ -32,9 +32,11 @@ class CheckTest extends TestCase
         $this->assertArrayHasKey('name', $fields['file']);
         $this->assertArrayHasKey('digest', $fields['file']);
         $this->assertArrayHasKey('content', $fields['file']);
+        $this->assertArrayHasKey('validation_policy', $fields);
 
         $this->assertSame(self::TYPE, $fields['type']);
         $this->assertSame(self::NAME, $fields['file']['name']);
+        $this->assertSame('qes', $fields['validation_policy']);
     }
 
     /**
@@ -70,5 +72,10 @@ class CheckTest extends TestCase
             'Symfony\Component\Validator\Constraints\Collection',
             $collection
         );
+    }
+
+    public function testGetValidationPolicies()
+    {
+        $this->assertSame(['qes', 'aes'], $this->query->getValidationPolicies());
     }
 }

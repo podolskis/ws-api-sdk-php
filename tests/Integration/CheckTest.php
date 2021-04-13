@@ -46,7 +46,7 @@ class CheckTest extends TestCase
 
         /** @var Dokobit\Document\CheckResult $statusResult */
         $statusResult = $this->client->get(
-            new Check($type, $file)
+            new Check($type, $file, Check::VALIDATION_POLICY_AES)
         );
 
         $this->assertSame(ResultInterface::STATUS_OK, $statusResult->getStatus());

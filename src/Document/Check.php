@@ -18,20 +18,28 @@ class Check implements QueryInterface
 {
     use FileFieldsTrait;
 
+    const VALIDATION_POLICY_QES = 'qes';
+    const VALIDATION_POLICY_AES = 'aes';
+
     /** @var string Possible values: pdf, adoc, mdoc */
     private $type;
 
     /** @var string file path */
     private $path;
 
+    /** @var string Possible values: qes, aes */
+    private $validationPolicy;
+
     /**
      * @param string $type
      * @param string $path
+     * @param string $validationPolicy
      */
-    public function __construct($type, $path)
+    public function __construct($type, $path, $validationPolicy = self::VALIDATION_POLICY_QES)
     {
         $this->type = $type;
         $this->path = $path;
+        $this->validationPolicy = $validationPolicy;
     }
 
     /**
@@ -52,6 +60,7 @@ class Check implements QueryInterface
         return [
             'type' => $this->type,
             'file' => $this->getFileFields($this->path),
+            'validation_policy' => $this->validationPolicy
         ];
     }
 
@@ -66,7 +75,7 @@ class Check implements QueryInterface
 
     /**
      * Validation constraints for fields
-     * @return array
+     * @return Assert\Collection
      */
     public function getValidationConstraints()
     {
@@ -87,7 +96,12 @@ class Check implements QueryInterface
                 'digest' => new Assert\Required([
                     new Assert\NotBlank()
                 ]),
-            ])
+            ]),
+            'validation_policy' => new Assert\Optional([
+                new Assert\Choice([
+                    'choices' => $this->getValidationPolicies()
+                ])
+            ]),
         ]);
     }
 
@@ -98,5 +112,13 @@ class Check implements QueryInterface
     public function getMethod()
     {
         return QueryInterface::POST;
+    }
+
+    /**
+     * @return array
+     */
+    public function getValidationPolicies()
+    {
+        return [self::VALIDATION_POLICY_QES, self::VALIDATION_POLICY_AES];
     }
 }

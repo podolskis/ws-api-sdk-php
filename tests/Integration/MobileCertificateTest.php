@@ -1,6 +1,7 @@
 <?php
 namespace Dokobit\Tests\Integration;
 
+use Dokobit\Exception\InvalidData;
 use Dokobit\Login;
 use Dokobit\ResultInterface;
 
@@ -8,24 +9,19 @@ class MobileCertificateTest extends TestCase
 {
     public function testCertificate()
     {
-        /** @var Dokobit\Login\MobileCertificateResult $result */
+        /** @var Login\MobileCertificateResult $result */
         $result = $this->client->get(
             new Login\MobileCertificate(PHONE, CODE)
         );
 
-        return $result;
+        $this->assertEquals(ResultInterface::STATUS_OK, $result->getStatus());
     }
 
-    /**
-     * @expectedException Dokobit\Exception\InvalidData
-     */
     public function testCertificateInvalidRequest()
     {
-        /** @var Dokobit\Login\MobileCertificateResult $result */
-        $result = $this->client->get(
+        $this->expectException(InvalidData::class);
+        $this->client->get(
             new Login\MobileCertificate('+37060000000', CODE)
         );
-
-        return $result;
     }
 }

@@ -79,7 +79,7 @@ class Seal implements QueryInterface
                     'type' => 'bool'
                 ])
             ]),
-            $this->type => new Assert\Collection([]),
+            $this->type => new Assert\Collection(['fields' => [], 'allowExtraFields' => true]),
         ]);
     }
 
