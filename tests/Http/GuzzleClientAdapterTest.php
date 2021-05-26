@@ -4,7 +4,7 @@ namespace Dokobit\Tests\Http;
 use GuzzleHttp\Exception\ClientException;
 use Dokobit\Http\GuzzleClientAdapter;
 
-class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
+class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
 {
     private $adapter;
     private $client;

@@ -84,7 +84,7 @@ class ScPrepare implements QueryInterface
 
     /**
      * Validation constraints for fields
-     * @return array
+     * @return Assert\Collection
      */
     public function getValidationConstraints()
     {
@@ -110,7 +110,7 @@ class ScPrepare implements QueryInterface
                     ]
                 ])
             ]),
-            $this->type => new Assert\Collection([]),
+            $this->type => new Assert\Collection(['fields' => [], 'allowExtraFields' => true]),
         ]);
     }
 

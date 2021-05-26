@@ -3,7 +3,7 @@ namespace Dokobit\Tests\Login;
 
 use Dokobit\ResponseMapper;
 
-class ResponseMapperTest extends \PHPUnit_Framework_TestCase
+class ResponseMapperTest extends \PHPUnit\Framework\TestCase
 {
     private $resultMock;
 
