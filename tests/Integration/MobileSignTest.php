@@ -24,22 +24,6 @@ class MobileSignTest extends TestCase
     }
 
     /**
-     * @depends testSign
-     * @params Sign\MobileResult $result
-     */
-    public function testSignStatusWaiting(Sign\MobileResult $result)
-    {
-        /** @var Sign\MobileStatusResult $statusResult */
-        $statusResult = $this->client->get(
-            new Sign\MobileStatus($result->getToken())
-        );
-
-        $this->assertSame(ResultInterface::STATUS_WAITING, $statusResult->getStatus());
-
-        return $result;
-    }
-
-    /**
      * @depends testSignStatusWaiting
      * @params Sign\MobileResult $result
      */

@@ -52,7 +52,7 @@ class ScSignTest extends TestCase
         $result = $this->client->get(new Sc($result->getToken(), $this->sign($result->getDtbs(), PRIVATE_KEY_SIGN)));
 
         $this->assertSame(ResultInterface::STATUS_OK, $result->getStatus());
-        $this->assertSame('Signature1', $result->getSignatureId());
+        $this->assertNotNull($result->getSignatureId());
         $this->assertNotEmpty($result->getFile());
     }
 

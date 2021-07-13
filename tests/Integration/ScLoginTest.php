@@ -23,7 +23,7 @@ class ScLoginTest extends TestCase
         $this->assertNotEmpty($result->getToken());
         $this->assertNotEmpty($result->getName());
         $this->assertNotEmpty($result->getSurname());
-        $this->assertEmpty($result->getCode());
+        $this->assertNotEmpty($result->getCode());
         $this->assertNotEmpty($result->getCountry());
         $this->assertNotEmpty($result->getEmail());
         $this->assertNotEmpty($result->getCertificate());
@@ -46,7 +46,7 @@ class ScLoginTest extends TestCase
         $this->assertSame(StatusResultInterface::STATUS_OK, $statusResult->getStatus());
         $this->assertNotEmpty($statusResult->getName());
         $this->assertNotEmpty($statusResult->getSurname());
-        $this->assertEmpty($statusResult->getCode());
+        $this->assertNotEmpty($statusResult->getCode());
         $this->assertNotEmpty($statusResult->getEmail());
         $this->assertNotEmpty($statusResult->getCountry());
     }

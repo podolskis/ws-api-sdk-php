@@ -16,7 +16,7 @@ class SealTest extends TestCase
         ));
 
         $this->assertSame(ResultInterface::STATUS_OK, $result->getStatus());
-        $this->assertSame('Signature1', $result->getSignatureId());
+        $this->assertNotNull($result->getSignatureId());
         $this->assertNotEmpty($result->getFile());
 
         return $result;

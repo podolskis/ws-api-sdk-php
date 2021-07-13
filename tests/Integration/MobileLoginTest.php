@@ -26,21 +26,6 @@ class MobileLoginTest extends TestCase
     }
 
     /**
-     * @depends testLogin
-     * @params Login\MobileResult $result
-     */
-    public function testLoginStatusWaiting(Login\MobileResult $result)
-    {
-        /** @var Dokobit\Login\MobileStatusResult $statusResult */
-        $statusResult = $this->client->get(
-            new Login\MobileStatus($result->getToken())
-        );
-        $this->assertSame(ResultInterface::STATUS_WAITING, $statusResult->getStatus());
-
-        return $result;
-    }
-
-    /**
      * @depends testLoginStatusWaiting
      * @params Login\MobileResult $result
      */
