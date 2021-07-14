@@ -1,7 +1,9 @@
 <?php
 namespace Dokobit;
 
-use GuzzleHttp\Subscriber\Log\LogSubscriber;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\MessageFormatter;
+use GuzzleHttp\Middleware;
 use Dokobit\Exception;
 use Dokobit\Exception\InvalidApiKey;
 use Dokobit\Http\ClientInterface;
@@ -55,12 +57,14 @@ class Client
      */
     public static function create(array $options = [], $log = false)
     {
-        $client = new \GuzzleHttp\Client();
-
+        $stack = HandlerStack::create();
         if ($log !== false) {
-            $subscriber = new LogSubscriber($log);
-            $client->getEmitter()->attach($subscriber);
+            $stack->push(
+                Middleware::log($log, new MessageFormatter(MessageFormatter::DEBUG))
+            );
         }
+
+        $client = new \GuzzleHttp\Client(['handler' => $stack]);
 
         return new self(
             new GuzzleClientAdapter($client),
@@ -190,16 +194,15 @@ class Client
      * @param string $method
      * @param string $url
      * @param array $fields
-     * @return Array
+     * @return array
      */
     private function request($method, $url, array $fields)
     {
-
         $options = [
             'query' => [
                 'access_token' => $this->getApiKey()
             ],
-            'body' => $fields,
+            'form_params' => $fields,
         ];
 
         return $this->client->sendRequest($method, $url, $options);

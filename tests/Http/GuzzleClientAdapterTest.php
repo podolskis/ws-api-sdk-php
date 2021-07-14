@@ -15,40 +15,32 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        $this->adapter = new GuzzleClientAdapter($this->client);
+    }
+
+    public function testPost()
+    {
         $this->client
-            ->method('createRequest')
+            ->method('request')
             ->with(
                 $this->equalTo('POST'),
                 $this->equalTo('https://developers.dokobit.com'),
                 []
             )
             ->willReturn(
-                $this->getMockBuilder('GuzzleHttp\Message\Request')
+                $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')
                     ->disableOriginalConstructor()
                     ->getMock()
             );
 
-        $this->adapter = new GuzzleClientAdapter($this->client);
-    }
-
-    public function testPost()
-    {
-        $response = $this->getMockBuilder('GuzzleHttp\Message\Response')
-            ->disableOriginalConstructor()
-            ->getMock()
-        ;
         $response
             ->expects($this->once())
-            ->method('json')
+            ->method('getBody')
         ;
+
         $this->client
             ->expects($this->once())
-            ->method('send')
-            ->willReturn($response)
-        ;
-        $this->client
-            ->expects($this->once())
-            ->method('createRequest')
+            ->method('request')
         ;
 
         $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
@@ -60,8 +52,8 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
      */
     public function testDataValidationError400()
     {
-        $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
-        $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
+        $request = $this->getMockBuilder('Psr\Http\Message\RequestInterface')->getMock();
+        $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')->getMock();
 
         $response
             ->method('getStatusCode')
@@ -69,12 +61,12 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         ;
         $response
             ->expects($this->once())
-            ->method('json')
-            ->willReturn([])
+            ->method('getBody')
+            ->willReturn('response body')
         ;
 
         $this->client
-            ->method('send')
+            ->method('request')
             ->will(
                 $this->throwException(
                     new ClientException(
@@ -84,10 +76,6 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
                     )
                 )
             )
-        ;
-        $this->client
-            ->expects($this->once())
-            ->method('createRequest')
         ;
 
         $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
@@ -99,8 +87,8 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidApiKeyError403()
     {
-        $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
-        $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
+        $request = $this->getMockBuilder('Psr\Http\Message\RequestInterface')->getMock();
+        $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')->getMock();
 
         $response
             ->method('getStatusCode')
@@ -113,7 +101,7 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         ;
 
         $this->client
-            ->method('send')
+            ->method('request')
             ->will(
                 $this->throwException(
                     new ClientException(
@@ -134,8 +122,8 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
      */
     public function testServerError500()
     {
-        $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
-        $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
+        $request = $this->getMockBuilder('Psr\Http\Message\RequestInterface')->getMock();
+        $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')->getMock();
 
         $response
             ->method('getStatusCode')
@@ -148,7 +136,7 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         ;
 
         $this->client
-            ->method('send')
+            ->method('request')
             ->will(
                 $this->throwException(
                     new ClientException(
@@ -169,8 +157,8 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
      */
     public function testTimeout504()
     {
-        $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
-        $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
+        $request = $this->getMockBuilder('Psr\Http\Message\RequestInterface')->getMock();
+        $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')->getMock();
 
         $response
             ->method('getStatusCode')
@@ -183,7 +171,7 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         ;
 
         $this->client
-            ->method('send')
+            ->method('request')
             ->will(
                 $this->throwException(
                     new ClientException(
@@ -204,8 +192,8 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
      */
     public function testUnexpectedResponseStatusCode()
     {
-        $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
-        $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
+        $request = $this->getMockBuilder('Psr\Http\Message\RequestInterface')->getMock();
+        $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')->getMock();
 
         $response
             ->method('getStatusCode')
@@ -218,7 +206,7 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         ;
 
         $this->client
-            ->method('send')
+            ->method('request')
             ->will(
                 $this->throwException(
                     new ClientException(
@@ -238,11 +226,8 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
      */
     public function testUnexpectedError()
     {
-        $request = $this->getMockBuilder('GuzzleHttp\Message\RequestInterface')->getMock();
-        $response = $this->getMockBuilder('GuzzleHttp\Message\ResponseInterface')->getMock();
-
         $this->client
-            ->method('send')
+            ->method('request')
             ->will(
                 $this->throwException(
                     new \Exception()

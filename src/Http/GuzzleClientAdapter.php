@@ -2,7 +2,7 @@
 namespace Dokobit\Http;
 
 use GuzzleHttp;
-use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 use Dokobit\Exception;
 
 /**
@@ -25,13 +25,13 @@ class GuzzleClientAdapter implements ClientInterface
      * Send HTTP request
      * @param string $method POST|GET
      * @param string $url http URL
-     * @param array $options query options. Query values goes under 'body' key.
+     * @param array $options query options. Query values goes under 'form_params' key.
      * Example:
      * $options = [
      *     'query' => [
      *         'access_token' => 'foobar',
      *     ],
-     *     'body' => [
+     *     'form_params' => [
      *         'param1' => 'value1',
      *         'param2' => 'value2',
      *     ]
@@ -43,17 +43,15 @@ class GuzzleClientAdapter implements ClientInterface
         $result = [];
 
         try {
-            $response = $this->client->send(
-                $this->client->createRequest($method, $url, $options)
-            );
-            $result = $response->json();
-        } catch (ClientException $e) {
+            $response = $this->client->request($method, $url, $options);
+            $result = json_decode($response->getBody(), true);
+        } catch (RequestException $e) {
             if ($e->getCode() == 400) {
                 throw new Exception\InvalidData(
                     'Data validation failed',
                     400,
                     $e,
-                    $e->getResponse()->json()
+                    json_decode($e->getResponse()->getBody(), true)
                 );
             } elseif ($e->getCode() == 403) {
                 throw new Exception\InvalidApiKey(
