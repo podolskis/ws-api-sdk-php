@@ -11,23 +11,13 @@ Check integration tests under `tests/Integration` for library use cases.
 
 ## Logging requests
 
-### Log by printing output to screen
-
-Set second parameter to `true`.
-
-    $client = Dokobit\Client::create([
-        'apiKey' => 'xxxxxx', //Your API key
-        'sandbox' => true,
-    ], true);
-
-
 ### Custom PSR-3 logger
 
-    use Monolog\Handler\StreamHandler;
+    use GuzzleHttp\Middleware;
+    use GuzzleHttp\MessageFormatter;
     use Monolog\Logger;
 
-    $log = new Logger('requests');
-    $log->pushHandler(new StreamHandler(__DIR__ . '/path/to/info.log', Logger::INFO));
+    $log = Middleware::log(new Logger('requests'), new MessageFormatter(MessageFormatter::DEBUG));
 
     $client = Dokobit\Client::create([
         'apiKey' => 'xxxxxx',
@@ -37,8 +27,6 @@ Set second parameter to `true`.
 Read more:
 
 http://www.php-fig.org/psr/psr-3/
-
-https://github.com/guzzle/log-subscriber
 
 https://github.com/Seldaek/monolog
 

@@ -47,12 +47,9 @@ class Client
      *     'url' => 'https://ws.dokobit.com',
      *     'sandboxUrl' => 'https://developers.dokobit.com',
      * ]
-     * @param LoggerInterface|callable|resource|null $log Logger used to log
-     *     messages. Pass a LoggerInterface to use a PSR-3 logger. Pass a
-     *     callable to log messages to a function that accepts a string of
-     *     data. Pass a resource returned from ``fopen()`` to log to an open
-     *     resource. Pass null or leave empty to write log messages using
-     *     ``echo()``.
+     * @param callable|null $log Logger used to log
+     *     messages. Pass a callable to log messages to a function
+     *     that accepts a string of data e.g. Middleware::log.
      * @return self
      */
     public static function create(array $options = [], $log = false)
