@@ -1,9 +1,7 @@
 # Dokobit WS API PHP Client
 
-[![Build Status](https://travis-ci.org/dokobit/ws-api-sdk-php.svg?branch=master)](https://travis-ci.org/dokobit/ws-api-sdk-php)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dokobit/ws-api-sdk-php/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/dokobit/ws-api-sdk-php/?branch=develop)
-[![Code Coverage](https://scrutinizer-ci.com/g/dokobit/ws-api-sdk-php/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/dokobit/ws-api-sdk-php/?branch=develop)
-[![Build Status](https://scrutinizer-ci.com/g/dokobit/ws-api-sdk-php/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/dokobit/ws-api-sdk-php/build-status/master)
+[![Code Coverage](https://scrutinizer-ci.com/g/dokobit/ws-api-sdk-php/badges/coverage.png?b=2.0)](https://scrutinizer-ci.com/g/dokobit/ws-api-sdk-php/?branch=2.0)
+[![Build Status](https://scrutinizer-ci.com/g/dokobit/ws-api-sdk-php/badges/build.png?b=2.0)](https://scrutinizer-ci.com/g/dokobit/ws-api-sdk-php/build-status/2.0)
 
 ## How to start?
 
