@@ -2,13 +2,10 @@
 namespace Dokobit;
 
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\MessageFormatter;
-use GuzzleHttp\Middleware;
 use Dokobit\Exception;
 use Dokobit\Exception\InvalidApiKey;
 use Dokobit\Http\ClientInterface;
 use Dokobit\Http\GuzzleClientAdapter;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 

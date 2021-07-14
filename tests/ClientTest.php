@@ -2,6 +2,9 @@
 namespace Dokobit\Tests\Login;
 
 use Dokobit\Client;
+use GuzzleHttp\MessageFormatter;
+use GuzzleHttp\Middleware;
+use Monolog\Logger;
 
 class ClientTest extends \PHPUnit\Framework\TestCase
 {
@@ -67,9 +70,15 @@ class ClientTest extends \PHPUnit\Framework\TestCase
 
     public function testFactoryCreateWithLogger()
     {
-        $logger = $this->getMockBuilder('Psr\Log\LoggerInterface')
-            ->getMock()
-        ;
+        $monologLogger = $this->getMockBuilder('Monolog\Logger')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $messageFormatter = $this->getMockBuilder('GuzzleHttp\MessageFormatter')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $logger = Middleware::log($monologLogger, $messageFormatter);
+
         $client = Client::create(
             ['sandbox' => true, 'apiKey' => 'xxx'],
             $logger
