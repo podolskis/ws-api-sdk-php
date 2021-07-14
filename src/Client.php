@@ -60,7 +60,7 @@ class Client
         $stack = HandlerStack::create();
         if ($log !== false) {
             $stack->push(
-                Middleware::log($log, new MessageFormatter(MessageFormatter::DEBUG))
+                $log
             );
         }
 
