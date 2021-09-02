@@ -24,19 +24,22 @@ class MobileSignTest extends TestCase
     }
 
     /**
-     * @depends testSignStatusWaiting
+     * @depends testSign
      * @params Sign\MobileResult $result
      */
     public function testSignStatusOk(Sign\MobileResult $result)
     {
         sleep(TIMEOUT);
 
-        /** @var Dokobit\Login\MobileStatusResult $result */
+        /** @var Dokobit\Sign\MobileStatusResult $statusResult */
         $statusResult = $this->client->get(
             new Sign\MobileStatus($result->getToken())
         );
         $this->assertSame(ResultInterface::STATUS_OK, $statusResult->getStatus());
-        $this->assertSame('Signature1', $statusResult->getSignatureId());
+        $this->assertNotEmpty($statusResult->getSignatureId(), 'Signature id is not empty');
+        $this->assertArrayHasKey('name', $statusResult->getFile());
+        $this->assertArrayHasKey('digest', $statusResult->getFile());
+        $this->assertArrayHasKey('content', $statusResult->getFile());
         $this->assertNotEmpty($statusResult->getFile());
     }
 
