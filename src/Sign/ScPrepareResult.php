@@ -14,7 +14,7 @@ class ScPrepareResult implements ResultInterface
     /** @var string token for sc sign query */
     private $token;
 
-    /** @var string sha1 hash of data to be signed */
+    /** @var string sha256 hash of data to be signed */
     private $dtbsHash;
 
     /** @var string Data to be signed */
