@@ -26,7 +26,7 @@ class MobileLoginTest extends TestCase
     }
 
     /**
-     * @depends testLoginStatusWaiting
+     * @depends testLogin
      * @params Login\MobileResult $result
      */
     public function testLoginStatusOk(Login\MobileResult $result)
