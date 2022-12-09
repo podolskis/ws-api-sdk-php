@@ -1,14 +1,17 @@
 <?php
 namespace Dokobit\Tests\Integration;
 
+use Dokobit\Exception\InvalidData;
+use Dokobit\Exception\QueryValidator;
 use Dokobit\ResultInterface;
 use Dokobit\Sign;
+use Dokobit\Sign\MobileResult;
 
 class MobileSignTest extends TestCase
 {
     public function testSign()
     {
-        /** @var Dokobit\Sign\MobileResult $result */
+        /** @var MobileResult $result */
         $result = $this->client->get(new Sign\Mobile(
             'pdf',
             PHONE,
@@ -31,7 +34,7 @@ class MobileSignTest extends TestCase
     {
         sleep(TIMEOUT);
 
-        /** @var Dokobit\Sign\MobileStatusResult $statusResult */
+        /** @var Sign\MobileStatusResult $statusResult */
         $statusResult = $this->client->get(
             new Sign\MobileStatus($result->getToken())
         );
@@ -45,12 +48,12 @@ class MobileSignTest extends TestCase
 
     /**
      * Test parameters validation on client side
-     * @expectedException Dokobit\Exception\QueryValidator
-     * @expectedExceptionMessage Query parameters validation failed
      */
     public function testInvalidParamsHandling()
     {
-        /** @var Dokobit\Sign\MobileResult $result */
+        $this->expectExceptionMessage("Query parameters validation failed");
+        $this->expectException(QueryValidator::class);
+        /** @var MobileResult $result */
         $result = $this->client->get(new Sign\Mobile(
             'pdf',
             '37260000007',
@@ -61,12 +64,12 @@ class MobileSignTest extends TestCase
 
     /**
      * Test parameters validation on API by sending invalid personal code
-     * @expectedException Dokobit\Exception\InvalidData
-     * @expectedExceptionMessage Data validation failed
      */
     public function testBadRequest()
     {
-        /** @var Dokobit\Sign\MobileResult $result */
+        $this->expectExceptionMessage("Data validation failed");
+        $this->expectException(InvalidData::class);
+        /** @var MobileResult $result */
         $result = $this->client->get(new Sign\Mobile(
             'pdf',
             PHONE,

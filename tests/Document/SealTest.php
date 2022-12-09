@@ -52,12 +52,10 @@ class SealTest extends TestCase
         $this->assertArrayHasKey('content', $file1);
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage File "" does not exist
-     */
     public function testGetFileFieldsWithNonExistingFile()
     {
+        $this->expectExceptionMessage("File \"\" does not exist");
+        $this->expectException(\RuntimeException::class);
         $method = new Seal(
             'pdf',
             [

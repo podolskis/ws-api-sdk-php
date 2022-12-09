@@ -14,7 +14,7 @@ trait FileFieldsTrait
             return $path;
         }
 
-        if (!file_exists($path)) {
+        if (null === $path || !file_exists($path)) {
             throw new \RuntimeException(sprintf('File "%s" does not exist', $path));
         }
 

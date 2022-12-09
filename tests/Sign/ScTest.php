@@ -10,7 +10,7 @@ class ScTest extends TestCase
     /** @var  Sc */
     private $query;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->query = new Sc('xxxx', 'yyyy');
     }

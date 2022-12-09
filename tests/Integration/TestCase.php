@@ -13,7 +13,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /** @var Client */
     protected $client;
 
-    public function setUp()
+    public function setUp(): void
     {
         $params = [
             'apiKey' => SANDBOX_API_KEY,

@@ -8,7 +8,7 @@ class SealTest extends TestCase
 {
     public function testSign()
     {
-        /** @var Dokobit\Document\SealResult $result */
+        /** @var Document\SealResult $result */
         $result = $this->client->get(new Document\Seal(
             'pdf',
             $this->getDocumentParams(),

@@ -11,7 +11,7 @@ class SmartIdStatusResultTest extends TestCase
 {
     private $method;
     
-    public function setUp()
+    public function setUp(): void
     {
         $this->method = new SmartIdStatusResult();
     }

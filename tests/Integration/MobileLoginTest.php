@@ -1,6 +1,8 @@
 <?php
 namespace Dokobit\Tests\Integration;
 
+use Dokobit\Exception\InvalidData;
+use Dokobit\Exception\QueryValidator;
 use Dokobit\Login;
 use Dokobit\ResultInterface;
 
@@ -8,7 +10,7 @@ class MobileLoginTest extends TestCase
 {
     public function testLogin()
     {
-        /** @var Dokobit\Login\MobileResult $result */
+        /** @var Login\MobileResult $result */
         $result = $this->client->get(
             new Login\Mobile(PHONE, CODE)
         );
@@ -33,7 +35,7 @@ class MobileLoginTest extends TestCase
     {
         sleep(TIMEOUT);
 
-        /** @var Dokobit\Login\MobileStatusResult $statusResult */
+        /** @var Login\MobileStatusResult $statusResult */
         $statusResult = $this->client->get(
             new Login\MobileStatus($result->getToken())
         );
@@ -42,11 +44,13 @@ class MobileLoginTest extends TestCase
 
     /**
      * Test parameters validation on client side
-     * @expectedException Dokobit\Exception\QueryValidator
-     * @expectedExceptionMessage Query parameters validation failed
+     *
+     *
      */
     public function testInvalidParamsHandling()
     {
+        $this->expectExceptionMessage("Query parameters validation failed");
+        $this->expectException(QueryValidator::class);
         $result = $this->client->get(
             new Login\Mobile('3726000000', CODE)
         );
@@ -54,11 +58,11 @@ class MobileLoginTest extends TestCase
 
     /**
      * Test parameters validation on API by sending invalid personal code
-     * @expectedException Dokobit\Exception\InvalidData
-     * @expectedExceptionMessage Data validation failed
      */
     public function testBadRequest()
     {
+        $this->expectExceptionMessage("Data validation failed");
+        $this->expectException(InvalidData::class);
         $result = $this->client->get(
             new Login\Mobile(PHONE, '41001091072')
         );

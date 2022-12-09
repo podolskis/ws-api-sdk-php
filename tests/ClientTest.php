@@ -1,29 +1,34 @@
 <?php
-namespace Dokobit\Tests\Login;
+namespace Dokobit\Tests;
 
 use Dokobit\Client;
-use GuzzleHttp\MessageFormatter;
+use Dokobit\Exception\InvalidApiKey;
+use Dokobit\Exception\QueryValidator;
+use Dokobit\Http\ClientInterface;
+use Dokobit\QueryInterface;
+use Dokobit\ResponseMapperInterface;
 use GuzzleHttp\Middleware;
-use Monolog\Logger;
+use Symfony\Component\Validator\ConstraintViolationList;
+use Symfony\Component\Validator\Validator\RecursiveValidator;
 
 class ClientTest extends \PHPUnit\Framework\TestCase
 {
-    /** @var Dokobit\QueryInterface */
+    /** @var QueryInterface */
     private $methodStub;
 
-    /** @var Dokobit\Http\ClientInterface */
+    /** @var ClientInterface */
     private $clientStub;
 
-    /** @var Dokobit\ResponseMapperInterface */
+    /** @var ResponseMapperInterface */
     private $responseMapperStub;
 
-    /** @var Symfony\Component\Validator\Validator */
+    /** @var RecursiveValidator */
     private $validatorStub;
 
     /** @var Client */
     private $client;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->methodStub = $this->getMockBuilder('Dokobit\QueryInterface')
             ->setMethods(['getAction', 'getMethod', 'getFields', 'createResult', 'getValidationConstraints'])
@@ -48,7 +53,7 @@ class ClientTest extends \PHPUnit\Framework\TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->validatorStub = $this->getMockBuilder('Symfony\Component\Validator\Validator\RecursiveValidator')
+        $this->validatorStub = $this->getMockBuilder(RecursiveValidator::class)
             ->disableOriginalConstructor()
             // ->setMethods(['validateValue'])
             ->getMock();
@@ -119,11 +124,9 @@ class ClientTest extends \PHPUnit\Framework\TestCase
         $this->assertSame('https://custom-developers.isign.io', $client->getSandboxUrl());
     }
 
-    /**
-     * @expectedException Dokobit\Exception\InvalidApiKey
-     */
     public function testApiKeyRequired()
     {
+        $this->expectException(InvalidApiKey::class);
         $client = new Client(
             $this->clientStub,
             $this->responseMapperStub,
@@ -220,22 +223,27 @@ class ClientTest extends \PHPUnit\Framework\TestCase
             ->willReturn([])
         ;
 
+        $violations = $this->getMockBuilder(ConstraintViolationList::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $violations
+            ->method('count')
+            ->willReturn(0);
+
         $this->validatorStub
             ->expects($this->once())
             ->method('validate')
-            ->willReturn([])
+            ->willReturn($violations)
         ;
 
         $this->client->get($this->methodStub);
     }
 
-    /**
-     * @expectedException Dokobit\Exception\QueryValidator
-     * @expectedExceptionMessage Query parameters validation failed
-     */
     public function testGetValidationFailed()
     {
-        $violations = $this->getMockBuilder('Symfony\Component\Validator\ConstraintViolationList')
+        $this->expectExceptionMessage("Query parameters validation failed");
+        $this->expectException(QueryValidator::class);
+        $violations = $this->getMockBuilder(ConstraintViolationList::class)
             ->disableOriginalConstructor()
             ->getMock();
         $violations

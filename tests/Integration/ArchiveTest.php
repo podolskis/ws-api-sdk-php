@@ -2,16 +2,16 @@
 namespace Dokobit\Tests\Integration;
 
 use Dokobit\Document\Archive;
+use Dokobit\Exception\QueryValidator;
 use Dokobit\ResultInterface;
 use Dokobit\StatusResultInterface;
+use RuntimeException;
 
 class ArchiveTest extends TestCase
 {
-    /**
-     * @expectedException Dokobit\Exception\QueryValidator
-     */
     public function testRequiredSignatureId()
     {
+        $this->expectException(QueryValidator::class);
         /** @var StatusResultInterface $statusResult */
         $statusResult = $this->client->get(new Archive(
             'pdf',
@@ -20,12 +20,10 @@ class ArchiveTest extends TestCase
         ));
     }
 
-    /**
-     * @expectedException RuntimeException
-     * @expectedExceptionMessage File "" does not exist
-     */
     public function testRequiredFileParameters()
     {
+        $this->expectExceptionMessage("File \"\" does not exist");
+        $this->expectException(RuntimeException::class);
         try {
             $this->client->get(new Archive(
                 'pdf',

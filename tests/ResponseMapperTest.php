@@ -1,5 +1,5 @@
 <?php
-namespace Dokobit\Tests\Login;
+namespace Dokobit\Tests;
 
 use Dokobit\ResponseMapper;
 
@@ -7,7 +7,7 @@ class ResponseMapperTest extends \PHPUnit\Framework\TestCase
 {
     private $resultMock;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->resultMock = $this
             ->getMockBuilder('Dokobit\ResultInterface')

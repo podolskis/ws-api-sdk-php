@@ -15,7 +15,7 @@ class TimestampTest extends TestCase
     /** @var  Check */
     private $query;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->query = new Timestamp(
             self::TYPE,
@@ -37,12 +37,10 @@ class TimestampTest extends TestCase
         $this->assertSame(self::NAME, $fields['file']['name']);
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage File "" does not exist
-     */
     public function testGetFileFieldsWithNonExistingFile()
     {
+        $this->expectExceptionMessage("File \"\" does not exist");
+        $this->expectException(\RuntimeException::class);
         $method = new Timestamp(self::TYPE, '');
         $method->getFields();
     }
