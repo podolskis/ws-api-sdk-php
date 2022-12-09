@@ -1,0 +1,46 @@
+name: Symfony compatibility
+
+on:
+    push:
+        branches: [ "DEV-3128" ]
+
+permissions:
+    contents: read
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                operating-system: [ ubuntu-latest ]
+                php: ['8.0', '8.1', '8.2']
+                symfony: ['6.0', '6.1', '6.2']
+                exclude:
+                    - php: 8.0
+                      symfony: 6.1
+                    - php: 8.0
+                      symfony: 6.2
+        steps:
+            - name: Branch name
+              run: echo ${{ github.ref_name }}
+
+            - name: Setup PHP ${{ matrix.php }}
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+
+            - name: Check php version
+              run: php -v
+
+            - name: Check composer version
+              run: composer --version
+
+            - name: Install Symfony ${{matrix.symfony}}
+              run: composer create-project symfony/skeleton:"${{matrix.symfony}}.*" .
+
+            - name: Check Symfony version
+              run: bin/console about
+
+            - name: Install sdk
+              run: composer require --prefer-dist --no-progress dokobit/ws-api-sdk-php:dev-DEV-3128
