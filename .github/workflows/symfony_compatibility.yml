@@ -27,7 +27,7 @@ jobs:
                       symfony: 6.2
         steps:
             - name: Branch name
-              run: echo ${{ github.ref_name }}
+              run: echo $GITHUB_HEAD_REF
 
             - name: Setup PHP ${{ matrix.php }}
               uses: shivammathur/setup-php@v2
@@ -47,4 +47,4 @@ jobs:
               run: bin/console about
 
             - name: Install sdk
-              run: composer require --prefer-dist --no-progress dokobit/ws-api-sdk-php:dev-${{ github.ref_name }}
+              run: composer require --prefer-dist --no-progress dokobit/ws-api-sdk-php:dev-$GITHUB_HEAD_REF
