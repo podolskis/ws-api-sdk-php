@@ -2,7 +2,11 @@ name: Symfony compatibility
 
 on:
     push:
-        branches: [ "DEV-3128" ]
+        branches:
+            - 3.*
+    pull_request:
+        branches:
+            - 3.*
 
 permissions:
     contents: read
@@ -43,4 +47,4 @@ jobs:
               run: bin/console about
 
             - name: Install sdk
-              run: composer require --prefer-dist --no-progress dokobit/ws-api-sdk-php:dev-DEV-3128
+              run: composer require --prefer-dist --no-progress dokobit/ws-api-sdk-php:dev-${{ github.ref_name }}
