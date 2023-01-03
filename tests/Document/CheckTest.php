@@ -15,7 +15,7 @@ class CheckTest extends TestCase
     /** @var  Check */
     private $query;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->query = new Check(
             self::TYPE,
@@ -39,12 +39,10 @@ class CheckTest extends TestCase
         $this->assertSame('qes', $fields['validation_policy']);
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage File "" does not exist
-     */
     public function testGetFileFieldsWithNonExistingFile()
     {
+        $this->expectExceptionMessage("File \"\" does not exist");
+        $this->expectException(\RuntimeException::class);
         $method = new Check(self::TYPE, null);
         $method->getFields();
     }

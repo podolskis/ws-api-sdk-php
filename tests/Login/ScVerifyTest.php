@@ -1,17 +1,18 @@
 <?php
 
 
-namespace Dokobit\Login;
+namespace Dokobit\Tests\Login;
 
+use Dokobit\Login\ScVerify;
 use Dokobit\QueryInterface;
 use Dokobit\Tests\TestCase;
 
-class ScStatusTest extends TestCase
+class ScVerifyTest extends TestCase
 {
     /** @var  ScVerify */
     private $method;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->method = new ScVerify('xxx', 'yyy');
     }

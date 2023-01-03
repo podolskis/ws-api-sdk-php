@@ -64,12 +64,10 @@ class MobileTest extends TestCase
         $this->assertArrayHasKey('content', $file);
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage File "" does not exist
-     */
     public function testGetFileFieldsWithNonExistingFile()
     {
+        $this->expectExceptionMessage("File \"\" does not exist");
+        $this->expectException(\RuntimeException::class);
         $method = new Mobile('pdf', '+370xxxxxxxx', 'xxxxxxxxxxx', [
             'files' => [
                 null

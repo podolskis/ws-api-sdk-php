@@ -1,6 +1,12 @@
 <?php
 namespace Dokobit\Tests\Http;
 
+use Dokobit\Exception\InvalidApiKey;
+use Dokobit\Exception\InvalidData;
+use Dokobit\Exception\ServerError;
+use Dokobit\Exception\Timeout;
+use Dokobit\Exception\UnexpectedError;
+use Dokobit\Exception\UnexpectedResponse;
 use GuzzleHttp\Exception\ClientException;
 use Dokobit\Http\GuzzleClientAdapter;
 
@@ -9,7 +15,7 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
     private $adapter;
     private $client;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->client = $this->getMockBuilder('GuzzleHttp\Client')
             ->disableOriginalConstructor()
@@ -46,12 +52,10 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
-    /**
-     * @expectedException Dokobit\Exception\InvalidData
-     * @expectedExceptionCode 400
-     */
     public function testDataValidationError400()
     {
+        $this->expectExceptionCode(400);
+        $this->expectException(InvalidData::class);
         $request = $this->getMockBuilder('Psr\Http\Message\RequestInterface')->getMock();
         $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')->getMock();
 
@@ -81,12 +85,10 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
-    /**
-     * @expectedException Dokobit\Exception\InvalidApiKey
-     * @expectedExceptionCode 403
-     */
     public function testInvalidApiKeyError403()
     {
+        $this->expectExceptionCode(403);
+        $this->expectException(InvalidApiKey::class);
         $request = $this->getMockBuilder('Psr\Http\Message\RequestInterface')->getMock();
         $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')->getMock();
 
@@ -116,12 +118,10 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
-    /**
-     * @expectedException Dokobit\Exception\ServerError
-     * @expectedExceptionCode 500
-     */
     public function testServerError500()
     {
+        $this->expectException(ServerError::class);
+        $this->expectExceptionCode(500);
         $request = $this->getMockBuilder('Psr\Http\Message\RequestInterface')->getMock();
         $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')->getMock();
 
@@ -151,12 +151,10 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
-    /**
-     * @expectedException Dokobit\Exception\Timeout
-     * @expectedExceptionCode 504
-     */
     public function testTimeout504()
     {
+        $this->expectExceptionCode(504);
+        $this->expectException(Timeout::class);
         $request = $this->getMockBuilder('Psr\Http\Message\RequestInterface')->getMock();
         $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')->getMock();
 
@@ -186,12 +184,10 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
-    /**
-     * @expectedException Dokobit\Exception\UnexpectedResponse
-     * @expectedExceptionCode 101
-     */
     public function testUnexpectedResponseStatusCode()
     {
+        $this->expectExceptionCode(101);
+        $this->expectException(UnexpectedResponse::class);
         $request = $this->getMockBuilder('Psr\Http\Message\RequestInterface')->getMock();
         $response = $this->getMockBuilder('Psr\Http\Message\ResponseInterface')->getMock();
 
@@ -221,11 +217,9 @@ class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
         $this->adapter->sendRequest('POST', 'https://developers.dokobit.com');
     }
 
-    /**
-     * @expectedException Dokobit\Exception\UnexpectedError
-     */
     public function testUnexpectedError()
     {
+        $this->expectException(UnexpectedError::class);
         $this->client
             ->method('request')
             ->will(

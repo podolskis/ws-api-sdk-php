@@ -5,15 +5,14 @@ namespace Dokobit\Tests\Integration;
 use Dokobit\Document\Timestamp;
 use Dokobit\Document\TimestampResult;
 use Dokobit\ResultInterface;
+use RuntimeException;
 
 class TimestampTest extends TestCase
 {
-    /**
-     * @expectedException RuntimeException
-     * @expectedExceptionMessage File "" does not exist
-     */
     public function testRequiredFileParameters()
     {
+        $this->expectExceptionMessage("File \"\" does not exist");
+        $this->expectException(RuntimeException::class);
         try {
             $this->client->get(new Timestamp(
                 'adoc',

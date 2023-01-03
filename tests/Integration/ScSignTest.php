@@ -1,18 +1,19 @@
 <?php
 namespace Dokobit\Tests\Integration;
 
+use Dokobit\Exception\InvalidData;
+use Dokobit\Exception\QueryValidator;
 use Dokobit\ResultInterface;
+use Dokobit\Sign\MobileResult;
 use Dokobit\Sign\Sc;
 use Dokobit\Sign\ScPrepare;
 use Dokobit\Sign\ScPrepareResult;
 
 class ScSignTest extends TestCase
 {
-    /**
-     * @expectedException Dokobit\Exception\QueryValidator
-     */
     public function testRequiredParams()
     {
+        $this->expectException(QueryValidator::class);
         $this->client->get(new ScPrepare(
             null,
             null,
@@ -58,14 +59,14 @@ class ScSignTest extends TestCase
 
     /**
      * Test parameters validation on API by sending invalid personal code
-     * @expectedException Dokobit\Exception\InvalidData
-     * @expectedExceptionMessage Data validation failed
      */
     public function testBadRequest()
     {
+        $this->expectExceptionMessage("Data validation failed");
+        $this->expectException(InvalidData::class);
         $documentParams = $this->getDocumentParams();
         unset($documentParams['contact']);
-        /** @var Dokobit\Sign\MobileResult $result */
+        /** @var MobileResult $result */
         $result = $this->client->get(new ScPrepare(
             base64_encode(CERTIFICATE_SIGN),
             'pdf',

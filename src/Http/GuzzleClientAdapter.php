@@ -44,7 +44,7 @@ class GuzzleClientAdapter implements ClientInterface
 
         try {
             $response = $this->client->request($method, $url, $options);
-            $result = json_decode($response->getBody(), true);
+            $result = json_decode((string) $response->getBody(), true);
         } catch (RequestException $e) {
             if ($e->getCode() == 400) {
                 throw new Exception\InvalidData(

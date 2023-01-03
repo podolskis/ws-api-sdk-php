@@ -1,31 +1,29 @@
 <?php
 namespace Dokobit\Tests\Integration;
 
+use Dokobit\Document\CheckResult;
 use Dokobit\DocumentTypeGuesser;
 use Dokobit\Document\Check;
+use Dokobit\Exception\QueryValidator;
 use Dokobit\ResultInterface;
 
 class CheckTest extends TestCase
 {
-    /**
-     * @expectedException Dokobit\Exception\QueryValidator
-     */
     public function testRequiredParams()
     {
+        $this->expectException(QueryValidator::class);
         $this->client->get(new Check(
             null,
             __DIR__.'/../data/document.pdf'
         ));
     }
 
-    /**
-     * @expectedException RuntimeException
-     * @expectedExceptionMessage File "" does not exist
-     */
     public function testRequiredFileParameters()
     {
+        $this->expectExceptionMessage("File \"\" does not exist");
+        $this->expectException(\RuntimeException::class);
         try {
-            /** @var Dokobit\Document\CheckResult $statusResult */
+            /** @var CheckResult $statusResult */
             $statusResult = $this->client->get(
                 new Check('pdf', null)
             );
@@ -44,7 +42,7 @@ class CheckTest extends TestCase
         $guesser = new DocumentTypeGuesser();
         $type = $guesser->guess($file);
 
-        /** @var Dokobit\Document\CheckResult $statusResult */
+        /** @var CheckResult $statusResult */
         $statusResult = $this->client->get(
             new Check($type, $file, Check::VALIDATION_POLICY_AES)
         );

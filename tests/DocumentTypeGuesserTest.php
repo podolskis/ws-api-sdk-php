@@ -2,6 +2,7 @@
 namespace Dokobit\Tests;
 
 use Dokobit\DocumentTypeGuesser;
+use Dokobit\Exception\NotSupportedDocumentType;
 
 class DocumentTypeGuesserTest extends TestCase
 {
@@ -13,11 +14,9 @@ class DocumentTypeGuesserTest extends TestCase
         $this->assertSame('pdf', $type);
     }
 
-    /**
-     * @expectedException Dokobit\Exception\NotSupportedDocumentType
-     */
     public function testNoTypeMatch()
     {
+        $this->expectException(NotSupportedDocumentType::class);
         $obj = new DocumentTypeGuesser();
         $obj->setGuessers([]);
         $type = $obj->guess(__DIR__ . '/data/document.pdf');

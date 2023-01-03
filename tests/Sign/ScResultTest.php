@@ -1,5 +1,5 @@
 <?php
-namespace Sign;
+namespace Dokobit\Tests\Sign;
 
 use Dokobit\Sign\ScResult;
 use Dokobit\Tests\TestCase;
@@ -9,7 +9,7 @@ class ScResultTest extends TestCase
 {
     private $method;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->method = new ScResult();
     }

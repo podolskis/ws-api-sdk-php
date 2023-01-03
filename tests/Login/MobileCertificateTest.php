@@ -9,7 +9,7 @@ class MobileCertificateTest extends TestCase
 {
     private $query;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->query = new MobileCertificate('+370xxxxxxxx', 'xxxxxxxxxxx');
     }

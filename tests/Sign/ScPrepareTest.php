@@ -15,7 +15,7 @@ class ScPrepareTest extends TestCase
     /** @var ScPrepare */
     private $method;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->method = new ScPrepare(
             base64_encode(CERTIFICATE_SIGN),
@@ -61,12 +61,10 @@ class ScPrepareTest extends TestCase
         $this->assertArrayHasKey('content', $file);
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage File "" does not exist
-     */
     public function testGetFileFieldsWithNonExistingFile()
     {
+        $this->expectExceptionMessage("File \"\" does not exist");
+        $this->expectException(\RuntimeException::class);
         $method = new ScPrepare(
             base64_encode(CERTIFICATE_SIGN),
             self::TYPE,
