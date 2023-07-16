@@ -1,5 +1,5 @@
 {
-    "name": "dokobit/ws-api-sdk-php",
+    "name": "podolskis/ws-api-sdk-php",
     "description": "Client for Dokobit.com e-signature WS API",
 
     "type": "library",
